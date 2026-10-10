@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '380px',
+      },
       colors: {
         'knowza-olive': '#79864B',
         'knowza-forest': '#78793F',

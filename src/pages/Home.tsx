@@ -1,6 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { Container } from '../components/Container';
 import { SectionLabel } from '../components/SectionLabel';
@@ -65,6 +67,194 @@ const ScrollPillarCard: React.FC<ScrollPillarCardProps> = ({
         </p>
       </div>
     </motion.div>
+  );
+};
+
+const FoundationsSection: React.FC = () => {
+  return (
+    <section className="py-20 md:py-28 bg-[#F7F5E0] border-t border-black/5 relative overflow-hidden">
+      <Container className="relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mb-12 sm:mb-16 space-y-4"
+        >
+          <SectionLabel label="FOUNDATIONS" color="olive" />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-knowza-dark font-normal tracking-tight">
+            The Principles of Our Experience
+          </h2>
+          <p className="text-sm md:text-base font-sans text-knowza-dark/75 font-light leading-relaxed pt-1">
+            Every detail of a Knowza journey is grounded in four guiding principles that ensure reverence for the land and soulful human presence.
+          </p>
+        </motion.div>
+
+        {/* Bento Grid Architecture */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          {/* Left 8-Column Block (Top 2 Cards + Bottom Wide Card) */}
+          <div className="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
+            {/* Top Row: 2 Clean Rounded Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Card 1: 01 / Rooted in Place */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                whileHover={{ y: -6 }}
+                className="bg-[#F7F5E0] border border-black/10 rounded-[28px] p-8 md:p-9 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 min-h-[300px] group cursor-default"
+              >
+                <div className="text-center">
+                  <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block mb-2">
+                    01 / FOUNDATION
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif text-knowza-dark font-normal tracking-wide mb-2.5">
+                    Rooted in Place
+                  </h3>
+                  <p className="text-xs sm:text-[13px] font-sans text-knowza-dark/75 font-light leading-relaxed max-w-xs mx-auto">
+                    Every sanctuary is an organic extension of its natural habitat, building in quiet rhythm with untouched wilderness.
+                  </p>
+                </div>
+
+                {/* Organic Wood Rings / Topographic Emblem */}
+                <div className="flex justify-center pt-6">
+                  <div className="relative w-24 h-20 flex items-center justify-center text-[#8A7D4C]/80 transition-transform duration-700 ease-out group-hover:scale-105">
+                    <svg viewBox="0 0 120 90" fill="none" className="w-full h-full stroke-current">
+                      <path d="M 15 50 C 20 20, 60 15, 105 35" strokeWidth="2.5" strokeLinecap="round" opacity="0.85" />
+                      <path d="M 22 56 C 28 32, 65 28, 98 44" strokeWidth="2.5" strokeLinecap="round" opacity="0.75" />
+                      <path d="M 32 62 C 38 42, 68 38, 90 52" strokeWidth="2.5" strokeLinecap="round" opacity="0.65" />
+                      <path d="M 44 68 C 48 54, 70 50, 82 60" strokeWidth="2.5" strokeLinecap="round" opacity="0.55" />
+                      <path d="M 55 72 C 58 64, 70 62, 75 66" strokeWidth="2.5" strokeLinecap="round" opacity="0.45" />
+                    </svg>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Card 2: 02 / Shaped by Culture (THE GREEN CARD with AUTOMATIC CONTINUOUS BREATHING ZOOM) */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="w-full flex"
+              >
+                <motion.div
+                  animate={{
+                    scale: [1, 1.045, 1],
+                    boxShadow: [
+                      '0 10px 24px -6px rgba(0, 0, 0, 0.16), 0 4px 8px -4px rgba(0, 0, 0, 0.08)',
+                      '0 24px 44px -10px rgba(78, 92, 45, 0.4), 0 14px 20px -6px rgba(0, 0, 0, 0.2)',
+                      '0 10px 24px -6px rgba(0, 0, 0, 0.16), 0 4px 8px -4px rgba(0, 0, 0, 0.08)',
+                    ],
+                  }}
+                  transition={{
+                    duration: 6,
+                    ease: 'easeInOut',
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                  }}
+                  style={{ transformOrigin: 'center center' }}
+                  className="w-full bg-[#79864B] border border-[#8C9A5C]/40 text-white rounded-[28px] p-8 md:p-9 flex flex-col items-center text-center justify-center min-h-[300px] group cursor-default relative overflow-hidden will-change-transform"
+                >
+                  <div className="relative z-10">
+                    <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-[#EEE9BF] font-semibold block mb-2">
+                      02 / FOUNDATION
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-serif text-[#FAF9F2] font-normal tracking-wide mb-2.5">
+                      Shaped by Culture
+                    </h3>
+                    <p className="text-xs sm:text-[13px] font-sans text-white/90 font-light leading-relaxed max-w-xs mx-auto">
+                      Living heritage, localized wisdom, and traditional craftsmanship guide each experience, honoring native memory.
+                    </p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+
+            {/* Bottom Row: Wide Photographic Card (03 / Connected by Heart) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              whileHover={{ y: -6 }}
+              className="relative rounded-[28px] overflow-hidden min-h-[280px] md:h-[310px] group shadow-md hover:shadow-2xl transition-all duration-500 border border-black/5 cursor-default"
+            >
+              <img
+                src="/images/gallery/backwater.jpg"
+                alt="Connected by Heart - Morning canoe on misted backwaters"
+                className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05] transition-transform duration-1000 ease-out group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/30 group-hover:from-black/90 group-hover:via-black/50 transition-colors duration-500" />
+
+              <div className="relative z-10 h-full p-8 md:p-10 flex flex-col items-center justify-center text-center text-[#F4F0D5]">
+                <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-knowza-bronze font-semibold block mb-2">
+                  03 / CONNECTION
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-serif text-white font-normal tracking-wide mb-3">
+                  Connected by Heart
+                </h3>
+                <p className="text-xs sm:text-[13px] font-sans text-white/90 font-light leading-relaxed max-w-md mx-auto">
+                  Hospitality is reimagined as genuine human presence. Meaningful encounters between travelers and local keepers foster quiet moments that outlast any itinerary.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right 4-Column Tall Monolith (04 / Thoughtfully Experienced & Bespoke Sanctuaries) */}
+          <div className="lg:col-span-5 xl:col-span-4">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.8, delay: 0.25 }}
+              whileHover={{ y: -6 }}
+              className="h-full min-h-[580px] md:min-h-[640px] rounded-[28px] bg-gradient-to-br from-[#3D3126] via-[#2A2016] to-[#1C150E] text-[#F4F0D5] p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#4E3F2E]/60 group cursor-default"
+            >
+              <div
+                className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-[#8A7D4C]/20 blur-[80px] pointer-events-none"
+                aria-hidden="true"
+              />
+
+              {/* Top Section */}
+              <div className="relative z-10 text-center md:text-left pt-2">
+                <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-knowza-bronze font-semibold block mb-2">
+                  04 / FOUNDATION
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-serif text-[#F4F0D5] font-normal tracking-wide mb-3">
+                  Thoughtfully Experienced
+                </h3>
+                <p className="text-xs sm:text-[13px] font-sans text-[#F4F0D5]/80 font-light leading-relaxed">
+                  Slow travel elevated into an art form. Time slows to the cadence of rustling leaves, dawn birdsong, and the warmth of a shared morning fire.
+                </p>
+              </div>
+
+              {/* Bottom Section */}
+              <div className="relative z-10 text-center md:text-left pt-10 border-t border-[#8A7D4C]/30">
+                <h4 className="text-xl sm:text-2xl font-serif text-[#F4F0D5] font-normal tracking-wide mb-2.5">
+                  Bespoke Sanctuaries
+                </h4>
+                <p className="text-xs sm:text-[13px] font-sans text-[#F4F0D5]/80 font-light leading-relaxed mb-6">
+                  We partner with local craft masters, indigenous botanists, and ancestral keepers to curate unhurried, soul-stirring journeys tailored to individual rhythm.
+                </p>
+
+                <div className="flex justify-center md:justify-start">
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-2 text-xs uppercase tracking-widest-editorial font-medium px-7 py-3 rounded-full group knowza-btn-liquid knowza-btn-liquid-secondary"
+                  >
+                    <span>Discover Philosophy</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 };
 
@@ -200,7 +390,7 @@ export const Home: React.FC = () => {
                 >
                   EST. 2024 · EXPERIENTIAL SANCTUARY
                 </motion.span>
-                <h1 className="font-display font-black italic uppercase text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[128px] text-[#ECE7D7] tracking-[0.03em] sm:tracking-[0.06em] lg:tracking-[0.08em] leading-[0.95] sm:leading-[0.86] select-none break-words flex flex-col items-center text-center px-2">
+                <h1 className="font-display font-black italic uppercase text-[46px] xs:text-[56px] sm:text-7xl md:text-8xl lg:text-[104px] xl:text-[116px] 2xl:text-[128px] text-[#ECE7D7] tracking-[0.02em] sm:tracking-[0.05em] lg:tracking-[0.08em] leading-[0.92] sm:leading-[0.86] select-none break-words flex flex-col items-center text-center px-2">
                   <motion.span
                     style={{ x: line1X, opacity: headlineOpacity }}
                     className="inline-block whitespace-nowrap will-change-transform"
@@ -385,171 +575,7 @@ export const Home: React.FC = () => {
           05 THE KNOWZA EXPERIENCE PRINCIPLES (BENTO GRID CARD UI)
           Clean architectural bento grid with warm bronze accents
           ======================================================== */}
-      <section className="py-20 md:py-28 bg-[#F7F5E0] border-t border-black/5 relative overflow-hidden">
-        <Container className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl mb-12 sm:mb-16 space-y-4"
-          >
-            <SectionLabel label="FOUNDATIONS" color="olive" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-knowza-dark font-normal tracking-tight">
-              The Principles of Our Experience
-            </h2>
-            <p className="text-sm md:text-base font-sans text-knowza-dark/75 font-light leading-relaxed pt-1">
-              Every detail of a Knowza journey is grounded in four guiding principles that ensure reverence for the land and soulful human presence.
-            </p>
-          </motion.div>
-
-          {/* Bento Grid Architecture */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            {/* Left 8-Column Block (Top 2 Cards + Bottom Wide Card) */}
-            <div className="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
-              {/* Top Row: 2 Clean Rounded Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Card 1: 01 / Rooted in Place */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                  whileHover={{ y: -6 }}
-                  className="bg-[#F7F5E0] border border-black/10 rounded-[28px] p-8 md:p-9 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 min-h-[300px] group cursor-default"
-                >
-                  <div className="text-center">
-                    <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block mb-2">
-                      01 / FOUNDATION
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-serif text-knowza-dark font-normal tracking-wide mb-2.5">
-                      Rooted in Place
-                    </h3>
-                    <p className="text-xs sm:text-[13px] font-sans text-knowza-dark/75 font-light leading-relaxed max-w-xs mx-auto">
-                      Every sanctuary is an organic extension of its natural habitat, building in quiet rhythm with untouched wilderness.
-                    </p>
-                  </div>
-
-                  {/* Organic Wood Rings / Topographic Emblem */}
-                  <div className="flex justify-center pt-6">
-                    <div className="relative w-24 h-20 flex items-center justify-center text-[#8A7D4C]/80 transition-transform duration-700 ease-out group-hover:scale-105">
-                      <svg viewBox="0 0 120 90" fill="none" className="w-full h-full stroke-current">
-                        <path d="M 15 50 C 20 20, 60 15, 105 35" strokeWidth="2.5" strokeLinecap="round" opacity="0.85" />
-                        <path d="M 22 56 C 28 32, 65 28, 98 44" strokeWidth="2.5" strokeLinecap="round" opacity="0.75" />
-                        <path d="M 32 62 C 38 42, 68 38, 90 52" strokeWidth="2.5" strokeLinecap="round" opacity="0.65" />
-                        <path d="M 44 68 C 48 54, 70 50, 82 60" strokeWidth="2.5" strokeLinecap="round" opacity="0.55" />
-                        <path d="M 55 72 C 58 64, 70 62, 75 66" strokeWidth="2.5" strokeLinecap="round" opacity="0.45" />
-                      </svg>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Card 2: 02 / Shaped by Culture */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  whileHover={{ y: -6 }}
-                  className="bg-[#79864B] border border-[#8C9A5C]/40 text-white rounded-[28px] p-8 md:p-9 flex flex-col items-center text-center justify-center shadow-md hover:shadow-2xl transition-all duration-500 min-h-[300px] group cursor-default"
-                >
-                  <div>
-                    <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-[#EEE9BF] font-semibold block mb-2">
-                      02 / FOUNDATION
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-serif text-[#FAF9F2] font-normal tracking-wide mb-2.5">
-                      Shaped by Culture
-                    </h3>
-                    <p className="text-xs sm:text-[13px] font-sans text-white/90 font-light leading-relaxed max-w-xs mx-auto">
-                      Living heritage, localized wisdom, and traditional craftsmanship guide each experience, honoring native memory.
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Bottom Row: Wide Photographic Card (03 / Connected by Heart) */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                whileHover={{ y: -6 }}
-                className="relative rounded-[28px] overflow-hidden min-h-[280px] md:h-[310px] group shadow-md hover:shadow-2xl transition-all duration-500 border border-black/5 cursor-default"
-              >
-                <img
-                  src="/images/gallery/backwater.jpg"
-                  alt="Connected by Heart - Morning canoe on misted backwaters"
-                  className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05] transition-transform duration-1000 ease-out group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/30 group-hover:from-black/90 group-hover:via-black/50 transition-colors duration-500" />
-
-                <div className="relative z-10 h-full p-8 md:p-10 flex flex-col items-center justify-center text-center text-[#F4F0D5]">
-                  <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-knowza-bronze font-semibold block mb-2">
-                    03 / CONNECTION
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-serif text-white font-normal tracking-wide mb-3">
-                    Connected by Heart
-                  </h3>
-                  <p className="text-xs sm:text-[13px] font-sans text-white/90 font-light leading-relaxed max-w-md mx-auto">
-                    Hospitality is reimagined as genuine human presence. Meaningful encounters between travelers and local keepers foster quiet moments that outlast any itinerary.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Right 4-Column Tall Monolith (04 / Thoughtfully Experienced & Bespoke Sanctuaries) */}
-            <div className="lg:col-span-5 xl:col-span-4">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.8, delay: 0.25 }}
-                whileHover={{ y: -6 }}
-                className="h-full min-h-[580px] md:min-h-[640px] rounded-[28px] bg-gradient-to-br from-[#3D3126] via-[#2A2016] to-[#1C150E] text-[#F4F0D5] p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#4E3F2E]/60 group cursor-default"
-              >
-                <div
-                  className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-[#8A7D4C]/20 blur-[80px] pointer-events-none"
-                  aria-hidden="true"
-                />
-
-                {/* Top Section */}
-                <div className="relative z-10 text-center md:text-left pt-2">
-                  <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-knowza-bronze font-semibold block mb-2">
-                    04 / FOUNDATION
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-serif text-[#F4F0D5] font-normal tracking-wide mb-3">
-                    Thoughtfully Experienced
-                  </h3>
-                  <p className="text-xs sm:text-[13px] font-sans text-[#F4F0D5]/80 font-light leading-relaxed">
-                    Slow travel elevated into an art form. Time slows to the cadence of rustling leaves, dawn birdsong, and the warmth of a shared morning fire.
-                  </p>
-                </div>
-
-                {/* Bottom Section */}
-                <div className="relative z-10 text-center md:text-left pt-10 border-t border-[#8A7D4C]/30">
-                  <h4 className="text-xl sm:text-2xl font-serif text-[#F4F0D5] font-normal tracking-wide mb-2.5">
-                    Bespoke Sanctuaries
-                  </h4>
-                  <p className="text-xs sm:text-[13px] font-sans text-[#F4F0D5]/80 font-light leading-relaxed mb-6">
-                    We partner with local craft masters, indigenous botanists, and ancestral keepers to curate unhurried, soul-stirring journeys tailored to individual rhythm.
-                  </p>
-
-                  <div className="flex justify-center md:justify-start">
-                    <Link
-                      to="/about"
-                      className="inline-flex items-center gap-2 text-xs uppercase tracking-widest-editorial font-medium px-7 py-3 rounded-full group knowza-btn-liquid knowza-btn-liquid-secondary"
-                    >
-                      <span>Discover Philosophy</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <FoundationsSection />
 
       {/* ========================================================
           06 FEATURED GALLERY PREVIEW (REFERENCE UI)

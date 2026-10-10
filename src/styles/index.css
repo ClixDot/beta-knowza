@@ -334,3 +334,78 @@
   background-color: #F7F5E0;
 }
 
+/* ========================================================
+   SECTION 01: GREEN CARD AUTOMATIC SMOOTH BREATHING ZOOM
+   Subtle scale transformation (1 to 1.045) over 6s ease-in-out
+   ======================================================== */
+@keyframes knowzaGreenCardBreathe {
+  0% {
+    transform: scale3d(1, 1, 1);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.16), 0 4px 8px -4px rgba(0, 0, 0, 0.08);
+  }
+  50% {
+    transform: scale3d(1.045, 1.045, 1);
+    box-shadow: 0 24px 44px -10px rgba(78, 92, 45, 0.38), 0 14px 20px -6px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.16), 0 4px 8px -4px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.knowza-green-breathe {
+  animation: knowzaGreenCardBreathe 6s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .knowza-green-breathe {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ========================================================
+   SECTION 02: CINEMATIC INFINITE HORIZONTAL GALLERY MARQUEE
+   Smooth right-to-left glide, seamless loop, pause on hover
+   ======================================================== */
+@keyframes knowzaMarqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.knowza-marquee-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  user-select: none;
+}
+
+.knowza-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: knowzaMarqueeLeft 40s linear infinite;
+}
+
+/* Pause marquee seamlessly on hover and resume smoothly on leave */
+.knowza-marquee-container:hover .knowza-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .knowza-marquee-track {
+    animation: none !important;
+  }
+  .knowza-marquee-container {
+    overflow-x: auto;
+  }
+}
+

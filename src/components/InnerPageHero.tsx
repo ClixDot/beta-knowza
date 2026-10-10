@@ -95,7 +95,7 @@ export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-black italic uppercase text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[104px] tracking-tight leading-[0.95] sm:leading-[0.88] select-none break-words flex flex-col items-center text-center px-2"
+            className="font-display font-black italic uppercase text-[44px] xs:text-[54px] sm:text-7xl md:text-8xl lg:text-[104px] xl:text-[116px] tracking-tight leading-[0.92] sm:leading-[0.88] select-none break-words flex flex-col items-center text-center px-2"
           >
             <span className="text-knowza-dark block">
               {titleLine1}
