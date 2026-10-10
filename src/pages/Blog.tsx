@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Clock, Calendar, BookOpen, Send } from 'lucide-react';
 import { Container } from '../components/Container';
 import { SectionLabel } from '../components/SectionLabel';
+import { InnerPageHero } from '../components/InnerPageHero';
 import { CTASection } from '../components/CTASection';
 import { blogPosts } from '../data/blog';
 import { BlogCategory } from '../types';
@@ -32,36 +33,20 @@ export const Blog: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#FAF9F5] text-knowza-dark">
+    <div className="relative overflow-hidden bg-[#F7F5E0] text-knowza-dark">
       {/* ========================================================
           01 ARCHITECTURAL EDITORIAL HERO
           ======================================================== */}
-      <section className="relative pt-32 sm:pt-40 pb-16 md:pb-20 border-b border-black/5 overflow-hidden">
-        {/* Ambient atmospheric glow */}
-        <div
-          className="absolute -top-32 left-1/4 w-[500px] h-[500px] rounded-full bg-[#8A7D4C]/10 blur-[120px] pointer-events-none"
-          aria-hidden="true"
-        />
-
-        <Container>
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1 }}
-              className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-serif text-knowza-dark font-normal tracking-tight leading-[1.05] break-words"
-            >
-              Stories from <br />
-              <span className="font-light italic text-[#8A7D4C]">the Living Journey.</span>
-            </motion.h1>
-          </div>
-        </Container>
-      </section>
+      <InnerPageHero
+        watermarkTop="BLOG"
+        titleLine1="STORIES FROM"
+        titleHighlight="THE LIVING JOURNEY"
+      />
 
       {/* ========================================================
           02 PILL CATEGORY NAVIGATION TABS
           ======================================================== */}
-      <section className="sticky top-[68px] md:top-[80px] z-30 bg-[#FAF9F5]/90 backdrop-blur-md border-b border-black/5 py-3 sm:py-4">
+      <section className="sticky top-[68px] md:top-[80px] z-30 bg-[#F7F5E0]/90 backdrop-blur-md border-b border-black/5 py-3 sm:py-4">
         <Container>
           <div className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 sm:gap-2.5 py-1 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth">
             {CATEGORIES.map((cat) => {
@@ -79,7 +64,7 @@ export const Blog: React.FC = () => {
                   className={`relative h-9 sm:h-9.5 px-4 sm:px-5 rounded-full text-xs uppercase tracking-widest-editorial font-medium transition-all duration-300 whitespace-nowrap focus:outline-none inline-flex items-center justify-center gap-2 shrink-0 select-none shadow-sm ${
                     isActive
                       ? 'bg-knowza-deep text-white ring-1 ring-knowza-deep shadow-md'
-                      : 'bg-white text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.03] border border-black/10'
+                      : 'bg-[#F7F5E0] text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.04] border border-black/10'
                   }`}
                   aria-pressed={isActive}
                 >
@@ -119,7 +104,7 @@ export const Blog: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.85 }}
-                  className="bg-white rounded-[28px] sm:rounded-[32px] border border-black/5 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
+                  className="bg-[#F7F5E0] rounded-[28px] sm:rounded-[32px] border border-black/10 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
                     <div className="lg:col-span-7 h-[260px] sm:h-[360px] md:h-[480px] overflow-hidden relative group">
@@ -191,7 +176,7 @@ export const Blog: React.FC = () => {
                       viewport={{ once: true, margin: '-50px' }}
                       whileHover={{ y: -6 }}
                       transition={{ duration: 0.5 }}
-                      className="bg-white rounded-[28px] border border-black/5 overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-500 p-4"
+                      className="bg-[#F7F5E0] rounded-[28px] border border-black/10 overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-500 p-4"
                     >
                       <div>
                         <div className="h-56 rounded-[20px] overflow-hidden shadow-sm relative">

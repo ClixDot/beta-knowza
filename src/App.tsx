@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import { ReactLenis, useLenis } from 'lenis/react';
+import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
 import { Navbar } from './components/Navbar';
@@ -18,18 +18,30 @@ import { BlogDetail } from './pages/BlogDetail';
 import { Contact } from './pages/Contact';
 import { NotFound } from './pages/NotFound';
 
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 // Scroll to top helper
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
-  const lenis = useLenis();
 
   useEffect(() => {
+    const lenis = (window as any).lenis;
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     } else {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      window.scrollTo(0, 0);
     }
-  }, [pathname, lenis]);
+
+    // Re-calculate ScrollTrigger offsets when route changes
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   return null;
 };
@@ -46,12 +58,42 @@ export const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Initialize Lenis smooth scroll engine & sync with GSAP ScrollTrigger
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.25,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.05,
+      touchMultiplier: 1.8,
+    });
+
+    (window as any).lenis = lenis;
+
+    // Connect Lenis to ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    const updateTicker = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(updateTicker);
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      gsap.ticker.remove(updateTicker);
+      lenis.destroy();
+      delete (window as any).lenis;
+    };
+  }, []);
+
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
-      <div className="flex flex-col min-h-screen bg-[#FAF9F5] text-knowza-dark font-sans selection:bg-knowza-olive selection:text-white">
-        <LoadingScreen isInitialLoading={isInitialLoading} />
-        <ScrollToTop />
-        <Navbar isInitialLoading={isInitialLoading} />
+    <div className="flex flex-col min-h-screen bg-[#F7F5E0] text-knowza-dark font-sans selection:bg-knowza-olive selection:text-white">
+      <LoadingScreen isInitialLoading={isInitialLoading} />
+      <ScrollToTop />
+      <Navbar isInitialLoading={isInitialLoading} />
 
       <main className="flex-grow">
         <AnimatePresence mode="wait">
@@ -118,7 +160,6 @@ export const App: React.FC = () => {
 
       <Footer />
     </div>
-  </ReactLenis>
   );
 };
 

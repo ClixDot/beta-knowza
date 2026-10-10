@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Calendar, ArrowUpRight, CheckCircle2, Clock, Phone, Sparkles } from 'lucide-react';
 import { Container } from '../components/Container';
 import { SectionLabel } from '../components/SectionLabel';
+import { InnerPageHero } from '../components/InnerPageHero';
 import { CTASection } from '../components/CTASection';
 import { siteConfig } from '../data/site';
 
@@ -84,31 +85,15 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#FAF9F5] text-knowza-dark">
+    <div className="relative overflow-hidden bg-[#F7F5E0] text-knowza-dark">
       {/* ========================================================
           01 ARCHITECTURAL CONCIERGE HERO
           ======================================================== */}
-      <section className="relative pt-32 sm:pt-40 pb-16 md:pb-20 border-b border-black/5 overflow-hidden">
-        {/* Ambient atmospheric glow */}
-        <div
-          className="absolute -top-32 right-1/4 w-[500px] h-[500px] rounded-full bg-[#8A7D4C]/10 blur-[120px] pointer-events-none"
-          aria-hidden="true"
-        />
-
-        <Container>
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1 }}
-              className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-serif text-knowza-dark font-normal tracking-tight leading-[1.05] break-words"
-            >
-              Begin Your Journey <br />
-              <span className="font-light italic text-[#8A7D4C]">Into Deliberate Stillness.</span>
-            </motion.h1>
-          </div>
-        </Container>
-      </section>
+      <InnerPageHero
+        watermarkTop="CONTACT"
+        titleLine1="BEGIN YOUR JOURNEY"
+        titleHighlight="INTO DELIBERATE STILLNESS"
+      />
 
       {/* ========================================================
           02 CONCIERGE & INQUIRY SPLIT SECTION
@@ -190,7 +175,7 @@ export const Contact: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.75, delay: 0.1 }}
-                className="p-6 sm:p-8 bg-white rounded-[24px] sm:rounded-[28px] border border-black/5 shadow-sm space-y-3 sm:space-y-4"
+                className="p-6 sm:p-8 bg-[#F7F5E0] rounded-[24px] sm:rounded-[28px] border border-black/10 shadow-sm space-y-3 sm:space-y-4"
               >
                 <div className="flex items-center gap-2 text-xs uppercase tracking-widest-editorial text-[#8A7D4C] font-semibold">
                   <MapPin className="w-4 h-4 text-knowza-olive" />
@@ -239,7 +224,7 @@ export const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.85, delay: 0.15 }}
-              className="lg:col-span-7 bg-white p-6 sm:p-10 md:p-14 rounded-[28px] sm:rounded-[32px] border border-black/5 shadow-xl"
+              className="lg:col-span-7 bg-[#F7F5E0] p-6 sm:p-10 md:p-14 rounded-[28px] sm:rounded-[32px] border border-black/10 shadow-xl"
             >
               {isSubmitted ? (
                 <div className="py-16 text-center space-y-6">
@@ -302,7 +287,7 @@ export const Contact: React.FC = () => {
                             className={`px-4 py-2 rounded-full text-xs font-sans transition-all duration-300 border ${
                               isSelected
                                 ? 'bg-knowza-deep text-white border-knowza-deep shadow-sm font-medium'
-                                : 'bg-[#FAF9F5] text-knowza-dark/70 border-black/10 hover:border-black/30'
+                                : 'bg-[#F7F5E0] text-knowza-dark/70 border-black/10 hover:border-black/30'
                             }`}
                           >
                             {purpose}
@@ -326,7 +311,7 @@ export const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Maya Sundaram"
-                      className={`w-full px-5 py-3.5 rounded-xl bg-[#FAF9F5] border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors ${
+                      className={`w-full px-5 py-3.5 rounded-xl bg-[#F7F5E0] border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors ${
                         errors.name
                           ? 'border-red-500 focus:border-red-600'
                           : 'border-black/10 focus:border-knowza-olive'
@@ -352,7 +337,7 @@ export const Contact: React.FC = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="maya@example.com"
-                        className={`w-full px-5 py-3.5 rounded-xl bg-[#FAF9F5] border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors ${
+                        className={`w-full px-5 py-3.5 rounded-xl bg-[#F7F5E0] border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors ${
                           errors.email
                             ? 'border-red-500 focus:border-red-600'
                             : 'border-black/10 focus:border-knowza-olive'
@@ -376,7 +361,7 @@ export const Contact: React.FC = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 (0) 00000 00000"
-                        className="w-full px-5 py-3.5 rounded-xl bg-[#FAF9F5] border border-black/10 text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none focus:border-knowza-olive transition-colors"
+                        className="w-full px-5 py-3.5 rounded-xl bg-[#F7F5E0] border border-black/10 text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none focus:border-knowza-olive transition-colors"
                       />
                     </div>
                   </div>
@@ -395,7 +380,7 @@ export const Contact: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Share your intended season, number of travelers, retreat goals, or questions..."
-                      className={`w-full px-5 py-3.5 rounded-xl bg-[#FAF9F5] border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors resize-y ${
+                      className={`w-full px-5 py-3.5 rounded-xl bg-[#F7F5E0] border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors resize-y ${
                         errors.message
                           ? 'border-red-500 focus:border-red-600'
                           : 'border-black/10 focus:border-knowza-olive'
@@ -427,7 +412,7 @@ export const Contact: React.FC = () => {
       {/* ========================================================
           03 INSTAGRAM & VISUAL CONNECTIONS
           ======================================================== */}
-      <section className="py-20 bg-white border-t border-black/5">
+      <section className="py-20 bg-[#F7F5E0] border-t border-black/5">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -446,7 +431,7 @@ export const Contact: React.FC = () => {
               href={siteConfig.socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest-editorial font-medium px-6 py-2.5 rounded-full bg-[#FAF9F5] border border-black/10 shadow-sm text-knowza-dark hover:text-knowza-forest transition-colors"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest-editorial font-medium px-6 py-2.5 rounded-full bg-[#F7F5E0] border border-black/10 shadow-sm text-knowza-dark hover:text-knowza-forest transition-colors"
             >
               <InstagramIcon className="w-4 h-4" />
               <span>Connect on Instagram</span>

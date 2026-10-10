@@ -2,7 +2,7 @@ import { BrandPrinciple, FiveElement } from '../types';
 
 export const siteConfig = {
   brandName: 'KNOWZA',
-  tagline: 'Nature · Culture · Connection',
+  tagline: 'Nature, Culture, Human Connection',
   positioning: 'Rooted in Place. Shaped by Culture. Connected by Heart.',
   description: 'Knowza is an experiential hospitality brand creating meaningful connections between people, places, culture, and nature.',
   fullPhilosophy: 'We believe the most memorable journeys are not simply visited — they are felt, experienced, and remembered.',

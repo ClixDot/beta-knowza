@@ -39,3 +39,4 @@ Thumbs.db
 # Raw extracted working assets
 pdf_pages
 extracted_assets
+*.mp4

@@ -16,12 +16,14 @@ export default {
         'knowza-sand': '#E3DDC6',
         'knowza-taupe': '#8D8978',
         'knowza-white': '#FAF9F2',
+        'knowza-canvas': '#F7F5E0',
         'knowza-dark': '#25271F',
       },
       fontFamily: {
         sans: ['"Montserrat"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         serif: ['"Montserrat"', '"Tenor Sans"', 'Georgia', 'serif'],
         montserrat: ['"Montserrat"', 'sans-serif'],
+        display: ['"Saira Extra Condensed"', '"Barlow Condensed"', 'Impact', 'sans-serif'],
       },
       fontWeight: {
         light: '500',

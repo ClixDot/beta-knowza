@@ -3,6 +3,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { navLinks } from '../data/navigation';
+import { siteConfig } from '../data/site';
 import { Container } from './Container';
 
 interface NavbarProps {
@@ -71,6 +72,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
   const leftNavLinks = navLinks.slice(0, 3); // HOME, ABOUT, GALLERY
   const rightNavLinks = navLinks.slice(3);   // BLOG, CONTACT
 
+  const handleExploreClick = (e: React.MouseEvent) => {
+    if (onOpenExplore) {
+      e.preventDefault();
+      onOpenExplore();
+      return;
+    }
+
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const target = document.getElementById('brand-statement') || document.querySelector('section:nth-of-type(2)');
+      if (target) {
+        const lenis = (window as any).lenis;
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -70 });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+    }
+
+    if (location.pathname === '/gallery') {
+      e.preventDefault();
+      window.scrollTo({ top: 320, behavior: 'smooth' });
+      return;
+    }
+  };
+
   return (
     <>
       <header
@@ -79,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
           isInitialLoading
             ? 'bg-transparent py-6 lg:py-8 border-transparent shadow-none'
             : isScrolled
-            ? 'bg-[#FAF9F5]/90 backdrop-blur-md py-4 shadow-sm border-b border-black/5'
+            ? 'bg-[#F7F5E0]/90 backdrop-blur-md py-4 shadow-sm border-b border-black/5'
             : isHome
             ? 'bg-gradient-to-b from-knowza-deep/80 via-knowza-deep/30 to-transparent py-6 lg:py-8'
             : 'bg-transparent py-6 lg:py-8'
@@ -186,8 +215,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
               </nav>
 
               <Link
-                to="/contact"
-                className={`inline-flex items-center gap-2 text-xs uppercase tracking-widest-editorial font-medium px-5 lg:px-6 py-2.5 rounded-full transition-all duration-300 group knowza-btn-liquid ${
+                to="/gallery"
+                onClick={handleExploreClick}
+                className={`inline-flex items-center gap-1.5 lg:gap-2 text-xs uppercase tracking-widest-editorial font-medium px-4 lg:px-6 py-2 lg:py-2.5 rounded-full transition-all duration-300 group knowza-btn-liquid shrink-0 ${
                   useLightNavbar
                     ? 'knowza-btn-liquid-white-fill shadow-md'
                     : 'knowza-btn-liquid-olive shadow-sm'
@@ -278,16 +308,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
 
         <div className="pt-6 border-t border-[#8A7D4C]/30 flex flex-col gap-4">
           <Link
-            to="/contact"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full py-4 text-center text-xs uppercase tracking-widest-editorial font-medium rounded-full flex items-center justify-center gap-2 group knowza-btn-liquid knowza-btn-liquid-olive-fill shadow-md"
+            to="/gallery"
+            onClick={(e) => {
+              setIsMobileMenuOpen(false);
+              handleExploreClick(e);
+            }}
+            className="w-full py-3.5 sm:py-4 text-center text-xs uppercase tracking-widest-editorial font-medium rounded-full flex items-center justify-center gap-2 group knowza-btn-liquid knowza-btn-liquid-olive-fill shadow-md"
           >
             <span>Explore Knowza</span>
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
           <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] uppercase tracking-widest text-knowza-dark/75 font-semibold pt-2">
-            <span>Nature · Culture · Connection</span>
-            <span>South India & Beyond</span>
+            <span>{siteConfig.tagline}</span>
+            <span>{siteConfig.territory}</span>
           </div>
         </div>
       </div>

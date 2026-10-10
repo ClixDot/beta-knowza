@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Maximize2, MapPin } from 'lucide-react';
 import { Container } from '../components/Container';
 import { SectionLabel } from '../components/SectionLabel';
+import { InnerPageHero } from '../components/InnerPageHero';
 import { GalleryLightbox } from '../components/GalleryLightbox';
 import { CTASection } from '../components/CTASection';
 import { galleryItems } from '../data/gallery';
@@ -30,36 +31,20 @@ export const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#FAF9F5] text-knowza-dark">
+    <div className="relative overflow-hidden bg-[#F7F5E0] text-knowza-dark">
       {/* ========================================================
           01 ARCHITECTURAL GALLERY HERO
           ======================================================== */}
-      <section className="relative pt-32 sm:pt-40 pb-16 md:pb-20 border-b border-black/5 overflow-hidden">
-        {/* Subtle atmospheric ambient glow */}
-        <div
-          className="absolute -top-32 left-1/3 w-[500px] h-[500px] rounded-full bg-[#8A7D4C]/10 blur-[120px] pointer-events-none"
-          aria-hidden="true"
-        />
-
-        <Container>
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1 }}
-              className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-serif text-knowza-dark font-normal tracking-tight leading-[1.05] break-words"
-            >
-              Moments, Places & <br />
-              <span className="font-light italic text-[#8A7D4C]">Quiet Encounters.</span>
-            </motion.h1>
-          </div>
-        </Container>
-      </section>
+      <InnerPageHero
+        watermarkTop="GALLERY"
+        titleLine1="MOMENTS, PLACES &"
+        titleHighlight="QUIET ENCOUNTERS"
+      />
 
       {/* ========================================================
           02 PILL CATEGORY FILTER TABS
           ======================================================== */}
-      <section className="sticky top-[68px] md:top-[80px] z-30 bg-[#FAF9F5]/90 backdrop-blur-md border-b border-black/5 py-3 sm:py-4">
+      <section className="sticky top-[68px] md:top-[80px] z-30 bg-[#F7F5E0]/90 backdrop-blur-md border-b border-black/5 py-3 sm:py-4">
         <Container>
           <div className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 sm:gap-2.5 py-1 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth">
             {CATEGORIES.map((cat) => {
@@ -77,7 +62,7 @@ export const Gallery: React.FC = () => {
                   className={`relative h-9 sm:h-9.5 px-4 sm:px-5 rounded-full text-xs uppercase tracking-widest-editorial font-medium transition-all duration-300 whitespace-nowrap focus:outline-none inline-flex items-center justify-center gap-2 shrink-0 select-none shadow-sm ${
                     isActive
                       ? 'bg-knowza-deep text-white ring-1 ring-knowza-deep shadow-md'
-                      : 'bg-white text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.03] border border-black/10'
+                      : 'bg-[#F7F5E0] text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.04] border border-black/10'
                   }`}
                   aria-pressed={isActive}
                 >
@@ -160,7 +145,7 @@ export const Gallery: React.FC = () => {
                     {/* Bottom Editorial Caption */}
                     <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
                       {item.location && (
-                        <div className="flex items-center gap-1.5 text-xs text-[#FAF9F5]/75 font-sans">
+                        <div className="flex items-center gap-1.5 text-xs text-[#F7F5E0]/80 font-sans">
                           <MapPin className="w-3.5 h-3.5 text-[#8A7D4C]" />
                           <span>{item.location}</span>
                         </div>
@@ -182,30 +167,7 @@ export const Gallery: React.FC = () => {
         </Container>
       </section>
 
-      {/* ========================================================
-          04 CURATORIAL INTERLUDE BANNER
-          ======================================================== */}
-      <section className="py-16 md:py-20 bg-white border-y border-black/5">
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.85 }}
-            className="max-w-3xl mx-auto text-center space-y-4"
-          >
-            <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block">
-              VISUAL REVERENCE
-            </span>
-            <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-light italic text-knowza-dark leading-relaxed">
-              "To see is to inhabit. To inhabit is to remember what quiet truly sounds like."
-            </p>
-            <p className="text-xs font-sans uppercase tracking-widest text-knowza-dark/50 pt-2">
-              Knowza Curatorial Archive
-            </p>
-          </motion.div>
-        </Container>
-      </section>
+
 
       {/* Lightbox Dialog */}
       <GalleryLightbox
