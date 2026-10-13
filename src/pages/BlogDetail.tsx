@@ -19,7 +19,7 @@ export const BlogDetail: React.FC = () => {
 
   if (!post) {
     return (
-      <div className="min-h-[70vh] flex flex-col items-center justify-center bg-[#F7F5E0] px-4 text-center">
+      <div className="min-h-[70vh] flex flex-col items-center justify-center bg-[#EDEABF] px-4 text-center">
         <span className="text-xs uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block mb-2">
           SANCTUARY DISPATCH
         </span>
@@ -45,7 +45,7 @@ export const BlogDetail: React.FC = () => {
     .slice(0, 2);
 
   return (
-    <article className="relative overflow-hidden bg-[#F7F5E0] text-knowza-dark">
+    <article className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
       {/* ========================================================
           01 HEADER / META SECTION
           ======================================================== */}
@@ -54,7 +54,7 @@ export const BlogDetail: React.FC = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest-editorial text-knowza-dark/70 hover:text-knowza-dark transition-colors px-4 py-2 rounded-full bg-[#F7F5E0] border border-black/10 shadow-sm group"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest-editorial text-knowza-dark/70 hover:text-knowza-dark transition-colors px-4 py-2 rounded-full bg-[#FAF9F2] border border-black/10 shadow-sm group"
             >
               <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />
               <span>Back to Stories</span>
@@ -138,7 +138,7 @@ export const BlogDetail: React.FC = () => {
 
               {/* Show pull quote after paragraph 2 */}
               {index === 2 && post.pullQuote && (
-                <div className="my-10 sm:my-14 py-8 sm:py-10 px-5 sm:px-12 rounded-[24px] sm:rounded-[28px] bg-[#F7F5E0] border border-black/10 text-center space-y-3 shadow-md">
+                <div className="my-10 sm:my-14 py-8 sm:py-10 px-5 sm:px-12 rounded-[24px] sm:rounded-[28px] bg-[#FAF9F2] border border-black/10 text-center space-y-3 shadow-md">
                   <blockquote className="text-lg sm:text-2xl md:text-3xl font-serif text-knowza-dark italic font-normal leading-relaxed">
                     "{post.pullQuote.text}"
                   </blockquote>
@@ -176,7 +176,7 @@ export const BlogDetail: React.FC = () => {
             </span>
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#F7F5E0] border border-black/10 shadow-sm text-xs uppercase tracking-widest-editorial font-medium text-knowza-dark hover:text-knowza-forest transition-colors group"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FAF9F2] border border-black/10 shadow-sm text-xs uppercase tracking-widest-editorial font-medium text-knowza-dark hover:text-knowza-forest transition-colors group"
             >
               <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />
               <span>Back to Stories</span>
@@ -189,7 +189,7 @@ export const BlogDetail: React.FC = () => {
           04 RELATED STORIES
           ======================================================== */}
       {relatedPosts.length > 0 && (
-        <section className="py-20 bg-[#F7F5E0] border-t border-black/5">
+        <section className="py-20 bg-[#EDEABF] border-t border-black/5">
           <Container>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -214,7 +214,7 @@ export const BlogDetail: React.FC = () => {
                     viewport={{ once: true }}
                     whileHover={{ y: -6 }}
                     transition={{ duration: 0.5 }}
-                    className="bg-[#F7F5E0] rounded-[28px] border border-black/10 overflow-hidden group hover:shadow-xl transition-all duration-500 shadow-sm flex flex-col justify-between p-4"
+                    className="bg-[#FAF9F2] rounded-[28px] border border-black/10 overflow-hidden group hover:shadow-xl transition-all duration-500 shadow-sm flex flex-col justify-between p-4"
                   >
                     <div>
                       <div className="h-48 rounded-[20px] overflow-hidden shadow-sm">

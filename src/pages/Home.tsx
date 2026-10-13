@@ -14,6 +14,7 @@ import { Counter } from '../components/Counter';
 import { TypewriterHeading } from '../components/TypewriterHeading';
 import { InfiniteScrollMarquee } from '../components/InfiniteScrollMarquee';
 import { InteractiveDispatchesCard } from '../components/InteractiveDispatchesCard';
+import { OfferingsSection } from '../components/OfferingsSection';
 
 interface ScrollPillarCardProps {
   image: string;
@@ -72,7 +73,7 @@ const ScrollPillarCard: React.FC<ScrollPillarCardProps> = ({
 
 const FoundationsSection: React.FC = () => {
   return (
-    <section className="py-20 md:py-28 bg-[#F7F5E0] border-t border-black/5 relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-[#EDEABF] border-t border-black/5 relative overflow-hidden">
       <Container className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -103,7 +104,7 @@ const FoundationsSection: React.FC = () => {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.8, delay: 0.1 }}
                 whileHover={{ y: -6 }}
-                className="bg-[#F7F5E0] border border-black/10 rounded-[28px] p-8 md:p-9 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 min-h-[300px] group cursor-default"
+                className="bg-[#FAF9F2] border border-black/10 rounded-[28px] p-8 md:p-9 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 min-h-[300px] group cursor-default"
               >
                 <div className="text-center">
                   <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block mb-2">
@@ -334,11 +335,11 @@ export const Home: React.FC = () => {
   const infiniteGalleryCards = [...galleryCards, ...galleryCards];
 
   return (
-    <div className="relative overflow-hidden bg-[#F7F5E0] text-knowza-dark">
+    <div className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
       {/* ========================================================
           01 HERO MONOLITH (INWARD SHRINK ON SCROLL)
           ======================================================== */}
-      <div ref={heroWrapperRef} className="relative h-[112vh] w-full bg-[#F7F5E0]">
+      <div ref={heroWrapperRef} className="relative h-[112vh] w-full bg-[#EDEABF]">
         <div className="sticky top-0 h-screen h-[100vh] h-[100dvh] w-full flex items-center justify-center overflow-hidden">
           <motion.section
             style={{
@@ -388,9 +389,9 @@ export const Home: React.FC = () => {
                   style={{ y: subY, opacity: headlineOpacity }}
                   className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-knowza-cream/80 block mb-2 sm:mb-3 font-medium will-change-transform text-center"
                 >
-                  EST. 2024 · EXPERIENTIAL SANCTUARY
+                  EST. 2026 · EXPERIENTIAL SANCTUARY
                 </motion.span>
-                <h1 className="font-display font-black italic uppercase text-[46px] xs:text-[56px] sm:text-7xl md:text-8xl lg:text-[104px] xl:text-[116px] 2xl:text-[128px] text-[#ECE7D7] tracking-[0.02em] sm:tracking-[0.05em] lg:tracking-[0.08em] leading-[0.92] sm:leading-[0.86] select-none break-words flex flex-col items-center text-center px-2">
+                <h1 className="font-display font-black italic uppercase text-[30px] xs:text-[38px] sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[88px] 2xl:text-[100px] text-[#ECE7D7] tracking-[0.02em] sm:tracking-[0.04em] lg:tracking-[0.05em] leading-[0.92] sm:leading-[0.86] select-none break-words flex flex-col items-center text-center px-2">
                   <motion.span
                     style={{ x: line1X, opacity: headlineOpacity }}
                     className="inline-block whitespace-nowrap will-change-transform"
@@ -399,15 +400,16 @@ export const Home: React.FC = () => {
                   </motion.span>
                   <motion.span
                     style={{ x: line2X, opacity: headlineOpacity }}
-                    className="inline-block whitespace-nowrap will-change-transform text-white"
+                    className="inline-block whitespace-nowrap will-change-transform text-[#6D7A43]"
                   >
                     CULTURE
                   </motion.span>
                   <motion.span
                     style={{ x: line3X, opacity: headlineOpacity }}
-                    className="inline-block whitespace-nowrap will-change-transform"
+                    className="inline-flex flex-col sm:flex-row items-center justify-center will-change-transform"
                   >
-                    & HEART MEET.
+                    <span className="whitespace-nowrap inline-block">& HUMAN CONNECTION</span>
+                    <span className="whitespace-nowrap inline-block sm:ml-2.5">MEET.</span>
                   </motion.span>
                 </h1>
               </motion.div>
@@ -439,7 +441,7 @@ export const Home: React.FC = () => {
           02 ARCHITECTURAL DIALOGUE & LIVING STATS
           Matching Reference Section 2 ("EVERY HOME WE CREATE...")
           ======================================================== */}
-      <section id="brand-statement" className="pt-8 sm:pt-12 md:pt-14 pb-20 md:pb-28 bg-[#F7F5E0] relative">
+      <section id="brand-statement" className="pt-8 sm:pt-12 md:pt-14 pb-20 md:pb-28 bg-[#EDEABF] relative">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: Eyebrow + Big Counters */}
@@ -534,7 +536,7 @@ export const Home: React.FC = () => {
           03 THREE ARCHITECTURAL PILLARS (TRIPTYCH CARDS)
           Matching Reference Section 3 (Private Library, Cinema, Living Room)
           ======================================================== */}
-      <section className="py-20 md:py-28 bg-[#F7F5E0] border-t border-black/5 relative">
+      <section className="py-20 md:py-28 bg-[#EDEABF] border-t border-black/5 relative">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {/* Card 1: Heritage Courtyard */}
@@ -570,6 +572,10 @@ export const Home: React.FC = () => {
         </Container>
       </section>
 
+      {/* ========================================================
+          04 OUR OFFERINGS (2-COLUMN LUXURY HOSPITALITY & HEALING)
+          ======================================================== */}
+      <OfferingsSection />
 
       {/* ========================================================
           05 THE KNOWZA EXPERIENCE PRINCIPLES (BENTO GRID CARD UI)
@@ -644,7 +650,7 @@ export const Home: React.FC = () => {
           07 FEATURED STORY / BLOG
           ======================================================== */}
       {blogPosts && blogPosts.length > 0 && (
-        <section className="py-24 md:py-32 bg-[#F7F5E0] border-t border-black/5 overflow-hidden">
+        <section className="py-24 md:py-32 bg-[#EDEABF] border-t border-black/5 overflow-hidden">
           <Container>
             <motion.div
               initial={{ opacity: 0, y: 30 }}

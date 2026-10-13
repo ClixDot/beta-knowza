@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -23,25 +23,42 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Scroll to top helper
+// Scroll to top helper - only resets to top when navigating to a DIFFERENT page
 const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const prevPathRef = useRef<string>(location.pathname);
 
   useEffect(() => {
+    const isNewPage = prevPathRef.current !== location.pathname;
+    prevPathRef.current = location.pathname;
+
     const lenis = (window as any).lenis;
-    if (lenis) {
-      lenis.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo(0, 0);
+    const hash = location.hash;
+
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        if (lenis) {
+          lenis.scrollTo(target as HTMLElement, { immediate: true });
+        } else {
+          target.scrollIntoView({ behavior: 'auto' });
+        }
+        ScrollTrigger.refresh();
+        return;
+      }
     }
 
-    // Re-calculate ScrollTrigger offsets when route changes
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 150);
+    // Only scroll to 0,0 if navigating to a brand new page
+    if (isNewPage) {
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }
 
-    return () => clearTimeout(timer);
-  }, [pathname]);
+    ScrollTrigger.refresh();
+  }, [location.pathname, location.hash]);
 
   return null;
 };
@@ -90,72 +107,78 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F7F5E0] text-knowza-dark font-sans selection:bg-knowza-olive selection:text-white">
+    <div className="flex flex-col min-h-screen bg-[#EDEABF] text-knowza-dark font-sans selection:bg-knowza-olive selection:text-white">
       <LoadingScreen isInitialLoading={isInitialLoading} />
       <ScrollToTop />
       <Navbar isInitialLoading={isInitialLoading} />
 
       <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route
-              path="/"
-              element={
-                <PageTransition>
-                  <Home />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <PageTransition>
-                  <About />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/gallery"
-              element={
-                <PageTransition>
-                  <Gallery />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/blog"
-              element={
-                <PageTransition>
-                  <Blog />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/blog/:slug"
-              element={
-                <PageTransition>
-                  <BlogDetail />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <PageTransition>
-                  <Contact />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <PageTransition>
-                  <NotFound />
-                </PageTransition>
-              }
-            />
-          </Routes>
-        </AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageTransition>
+                <Home />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PageTransition>
+                <About />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/gallery"
+            element={
+              <PageTransition>
+                <Gallery />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <PageTransition>
+                <Blog />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/blog/:slug"
+            element={
+              <PageTransition>
+                <BlogDetail />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/hospitality"
+            element={<Navigate to="/about?tab=hospitality#curated-pathways" replace />}
+          />
+          <Route
+            path="/healing"
+            element={<Navigate to="/about?tab=healing#curated-pathways" replace />}
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageTransition>
+                <Contact />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <PageTransition>
+                <NotFound />
+              </PageTransition>
+            }
+          />
+        </Routes>
       </main>
 
       <Footer />

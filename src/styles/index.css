@@ -13,7 +13,7 @@
     --knowza-sand: #E3DDC6;
     --knowza-taupe: #8D8978;
     --knowza-white: #FAF9F2;
-    --knowza-canvas: #F7F5E0;
+    --knowza-canvas: #EDEABF;
     --knowza-dark: #25271F;
   }
 
@@ -40,7 +40,7 @@
   }
 
   body {
-    background-color: #F7F5E0;
+    background-color: #EDEABF;
     color: var(--knowza-dark);
     line-height: 1.7;
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -260,7 +260,7 @@
   background-color: #79864B;
 }
 .knowza-btn-liquid-olive:hover {
-  color: #F7F5E0 !important;
+  color: #EDEABF !important;
   border-color: #79864B;
 }
 .knowza-btn-liquid-olive:active::before {
@@ -277,7 +277,7 @@
   background-color: #25271F;
 }
 .knowza-btn-liquid-olive-fill:hover {
-  color: #F7F5E0 !important;
+  color: #EDEABF !important;
   border-color: #25271F;
 }
 .knowza-btn-liquid-olive-fill:active::before {
@@ -294,7 +294,7 @@
   background-color: #25271F;
 }
 .knowza-btn-liquid-dark:hover {
-  color: #F7F5E0 !important;
+  color: #EDEABF !important;
   border-color: #25271F;
 }
 .knowza-btn-liquid-dark:active::before {
@@ -331,7 +331,7 @@
   border-color: #ffffff;
 }
 .knowza-btn-liquid-secondary:active::before {
-  background-color: #F7F5E0;
+  background-color: #EDEABF;
 }
 
 /* ========================================================

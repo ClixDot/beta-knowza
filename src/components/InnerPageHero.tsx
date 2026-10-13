@@ -45,7 +45,7 @@ export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative pt-28 sm:pt-36 md:pt-44 pb-12 sm:pb-16 md:pb-20 overflow-hidden border-b border-black/5 bg-[#F7F5E0] text-knowza-dark ${className}`}
+      className={`relative pt-28 sm:pt-36 md:pt-44 pb-12 sm:pb-16 md:pb-20 overflow-hidden border-b border-black/5 bg-[#EDEABF] text-knowza-dark ${className}`}
     >
       {/* ========================================================
           REPEATING SCROLL PARALLAX WATERMARK (EXACTLY 2 LINES)

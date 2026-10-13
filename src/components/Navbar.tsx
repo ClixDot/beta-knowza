@@ -108,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
           isInitialLoading
             ? 'bg-transparent py-6 lg:py-8 border-transparent shadow-none'
             : isScrolled
-            ? 'bg-[#F7F5E0]/90 backdrop-blur-md py-4 shadow-sm border-b border-black/5'
+            ? 'bg-[#EDEABF]/90 backdrop-blur-md py-4 shadow-sm border-b border-black/5'
             : isHome
             ? 'bg-gradient-to-b from-knowza-deep/80 via-knowza-deep/30 to-transparent py-6 lg:py-8'
             : 'bg-transparent py-6 lg:py-8'
@@ -256,7 +256,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
       {/* Mobile Drawer Menu */}
       <div
         data-lenis-prevent
-        className={`fixed inset-0 z-[60] bg-[#EEEAC0] backdrop-blur-xl text-knowza-dark flex flex-col justify-between p-6 sm:p-8 overflow-y-auto md:hidden transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 z-[60] bg-[#EDEABF] backdrop-blur-xl text-knowza-dark flex flex-col justify-between p-6 sm:p-8 overflow-y-auto md:hidden transition-all duration-500 ease-in-out ${
           isMobileMenuOpen
             ? 'opacity-100 pointer-events-auto translate-y-0'
             : 'opacity-0 pointer-events-none -translate-y-4'

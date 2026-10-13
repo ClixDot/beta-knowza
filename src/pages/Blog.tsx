@@ -33,7 +33,7 @@ export const Blog: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#F7F5E0] text-knowza-dark">
+    <div className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
       {/* ========================================================
           01 ARCHITECTURAL EDITORIAL HERO
           ======================================================== */}
@@ -46,7 +46,7 @@ export const Blog: React.FC = () => {
       {/* ========================================================
           02 PILL CATEGORY NAVIGATION TABS
           ======================================================== */}
-      <section className="sticky top-[68px] md:top-[80px] z-30 bg-[#F7F5E0]/90 backdrop-blur-md border-b border-black/5 py-3 sm:py-4">
+      <section className="sticky top-[68px] md:top-[80px] z-30 bg-[#EDEABF]/90 backdrop-blur-md border-b border-black/5 py-3 sm:py-4">
         <Container>
           <div className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 sm:gap-2.5 py-1 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth">
             {CATEGORIES.map((cat) => {
@@ -64,7 +64,7 @@ export const Blog: React.FC = () => {
                   className={`relative h-9 sm:h-9.5 px-4 sm:px-5 rounded-full text-xs uppercase tracking-widest-editorial font-medium transition-all duration-300 whitespace-nowrap focus:outline-none inline-flex items-center justify-center gap-2 shrink-0 select-none shadow-sm ${
                     isActive
                       ? 'bg-knowza-deep text-white ring-1 ring-knowza-deep shadow-md'
-                      : 'bg-[#F7F5E0] text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.04] border border-black/10'
+                      : 'bg-[#EDEABF] text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.04] border border-black/10'
                   }`}
                   aria-pressed={isActive}
                 >
@@ -104,7 +104,7 @@ export const Blog: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.85 }}
-                  className="bg-[#F7F5E0] rounded-[28px] sm:rounded-[32px] border border-black/10 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
+                  className="bg-[#FAF9F2] rounded-[28px] sm:rounded-[32px] border border-black/10 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
                     <div className="lg:col-span-7 h-[260px] sm:h-[360px] md:h-[480px] overflow-hidden relative group">
@@ -176,7 +176,7 @@ export const Blog: React.FC = () => {
                       viewport={{ once: true, margin: '-50px' }}
                       whileHover={{ y: -6 }}
                       transition={{ duration: 0.5 }}
-                      className="bg-[#F7F5E0] rounded-[28px] border border-black/10 overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-500 p-4"
+                      className="bg-[#FAF9F2] rounded-[28px] border border-black/10 overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-500 p-4"
                     >
                       <div>
                         <div className="h-56 rounded-[20px] overflow-hidden shadow-sm relative">

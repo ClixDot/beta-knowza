@@ -11,6 +11,7 @@ import { CTASection } from '../components/CTASection';
 import { siteConfig } from '../data/site';
 import { Counter } from '../components/Counter';
 import { TypewriterHeading } from '../components/TypewriterHeading';
+import { CuratedPathwaysSection } from '../components/CuratedPathwaysSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -233,7 +234,7 @@ export const About: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden bg-[#F7F5E0] text-knowza-dark">
+    <div ref={containerRef} className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
       {/* ========================================================
           01 ARCHITECTURAL EDITORIAL HERO
           ======================================================== */}
@@ -246,7 +247,7 @@ export const About: React.FC = () => {
       />
 
       {/* Sanctuary Banner Section */}
-      <section className="pb-16 md:pb-24 border-b border-black/5 bg-[#F7F5E0]">
+      <section className="pb-16 md:pb-24 border-b border-black/5 bg-[#EDEABF]">
         <Container>
 
           {/* Cinematic Wide Sanctuary Banner Frame with GSAP Parallax & Smooth Expand */}
@@ -297,7 +298,7 @@ export const About: React.FC = () => {
       {/* ========================================================
           02 ARCHITECTURAL DIALOGUE & LIVING STATS
           ======================================================== */}
-      <section className="py-24 md:py-36 bg-[#F7F5E0] border-b border-black/5 relative">
+      <section className="py-24 md:py-36 bg-[#EDEABF] border-b border-black/5 relative">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: Eyebrow + Counters with GSAP Scrub Lines */}
@@ -377,7 +378,7 @@ export const About: React.FC = () => {
               {/* Floating Quote Card with GSAP 3D perspective */}
               <div
                 ref={quoteCardRef}
-                className="p-8 bg-[#F7F5E0] rounded-[28px] border border-black/10 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow"
+                className="p-8 bg-[#FAF9F2] rounded-[28px] border border-black/10 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow"
               >
                 <Sparkles className="w-5 h-5 text-[#8A7D4C] shrink-0 mt-1" />
                 <div>
@@ -396,9 +397,14 @@ export const About: React.FC = () => {
       </section>
 
       {/* ========================================================
+          02.5 THE TWO LIVING PATHWAYS (HOSPITALITY & HEALING JOURNEY)
+          ======================================================== */}
+      <CuratedPathwaysSection />
+
+      {/* ========================================================
           03 THE THREE LIVING PILLARS (SCULPTURAL CARDS WITH GSAP PARALLAX)
           ======================================================== */}
-      <section className="py-14 md:py-20 bg-[#F7F5E0] border-b border-black/5 relative">
+      <section className="py-14 md:py-20 bg-[#EDEABF] border-b border-black/5 relative">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-14 space-y-3">
             <SectionLabel label="PILLARS OF EXPERIENCE" color="olive" alignment="center" />
@@ -413,7 +419,7 @@ export const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Pillar 1: Nature */}
-            <div className="gsap-pillar-card bg-[#F7F5E0] border border-black/10 rounded-[28px] p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 group">
+            <div className="gsap-pillar-card bg-[#FAF9F2] border border-black/10 rounded-[28px] p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 group">
               <div className="space-y-4">
                 <span className="text-[11px] uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block">
                   01 / NATURE
@@ -438,7 +444,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* Pillar 2: Culture */}
-            <div className="gsap-pillar-card bg-[#F7F5E0] border border-black/10 rounded-[28px] p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 group">
+            <div className="gsap-pillar-card bg-[#FAF9F2] border border-black/10 rounded-[28px] p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 group">
               <div className="space-y-4">
                 <span className="text-[11px] uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block">
                   02 / CULTURE
@@ -463,7 +469,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* Pillar 3: Connection */}
-            <div className="gsap-pillar-card bg-[#F7F5E0] border border-black/10 rounded-[28px] p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 group">
+            <div className="gsap-pillar-card bg-[#FAF9F2] border border-black/10 rounded-[28px] p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-500 group">
               <div className="space-y-4">
                 <span className="text-[11px] uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block">
                   03 / CONNECTION
@@ -495,7 +501,7 @@ export const About: React.FC = () => {
       {/* ========================================================
           05 EDITORIAL CRAFT & ECOLOGICAL HARMONY (GSAP DUAL OPPOSING PARALLAX)
           ======================================================== */}
-      <section className="py-12 md:py-20 bg-[#F7F5E0] border-t border-black/5 relative">
+      <section className="py-12 md:py-20 bg-[#EDEABF] border-t border-black/5 relative">
         <Container>
           <div className="gsap-diptych-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Photographic Diptych with GSAP Opposing Parallax */}

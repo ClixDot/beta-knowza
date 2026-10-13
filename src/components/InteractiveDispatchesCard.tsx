@@ -109,7 +109,7 @@ export const InteractiveDispatchesCard: React.FC<InteractiveDispatchesCardProps>
         }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative z-10 bg-[#F7F5E0] p-5 sm:p-8 md:p-12 rounded-[24px] sm:rounded-[32px] border border-black/10 shadow-[0_12px_45px_-12px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.18)] transition-shadow duration-500 will-change-transform overflow-hidden group"
+        className="relative z-10 bg-[#FAF9F2] p-5 sm:p-8 md:p-12 rounded-[24px] sm:rounded-[32px] border border-black/10 shadow-[0_12px_45px_-12px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.18)] transition-shadow duration-500 will-change-transform overflow-hidden group"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-14 items-center">
           {/* Left Column: Image with Windowed Parallax & Floating Badge */}

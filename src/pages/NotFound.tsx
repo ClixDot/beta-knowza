@@ -6,7 +6,7 @@ import { SectionLabel } from '../components/SectionLabel';
 
 export const NotFound: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F7F5E0] text-knowza-dark py-32 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-[#EDEABF] text-knowza-dark py-32 relative overflow-hidden">
       {/* Background aesthetic glow */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#8A7D4C]/10 blur-[120px] pointer-events-none" 
@@ -14,7 +14,7 @@ export const NotFound: React.FC = () => {
       />
 
       <Container>
-        <div className="max-w-xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 bg-[#F7F5E0] p-6 sm:p-14 rounded-[28px] sm:rounded-[32px] border border-black/10 shadow-xl">
+        <div className="max-w-xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 bg-[#FAF9F2] p-6 sm:p-14 rounded-[28px] sm:rounded-[32px] border border-black/10 shadow-xl">
           <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block">
             SANCTUARY THRESHOLD · 404
           </span>

@@ -19,7 +19,7 @@ export default {
         'knowza-sand': '#E3DDC6',
         'knowza-taupe': '#8D8978',
         'knowza-white': '#FAF9F2',
-        'knowza-canvas': '#F7F5E0',
+        'knowza-canvas': '#EDEABF',
         'knowza-dark': '#25271F',
       },
       fontFamily: {
