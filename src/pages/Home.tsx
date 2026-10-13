@@ -347,7 +347,7 @@ export const Home: React.FC = () => {
               borderRadius: heroBorderRadius,
               transformOrigin: 'center center',
             }}
-            className="relative w-full h-full overflow-hidden bg-knowza-deep text-white flex flex-col justify-between px-4 sm:px-10 md:px-14 lg:px-20 pt-16 sm:pt-28 pb-4 sm:pb-10 shadow-2xl will-change-transform"
+            className="relative w-full h-full overflow-hidden bg-knowza-deep text-white flex flex-col justify-between px-4 sm:px-10 md:px-14 lg:px-20 pt-16 sm:pt-28 pb-12 sm:pb-16 md:pb-20 shadow-2xl will-change-transform"
           >
             {/* Cinematic Background Image with Slow Scale */}
             <div className="absolute inset-0 z-0">
@@ -416,7 +416,7 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Bottom Hero Bar */}
-            <div className="relative z-10 pt-2 sm:pt-8 pb-1 sm:pb-0 flex justify-center w-full">
+            <div className="relative z-10 pt-2 sm:pt-6 pb-4 sm:pb-4 mb-2 sm:mb-4 flex justify-center w-full">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-4">
                 <Link
                   to="/gallery"
