@@ -22,7 +22,7 @@ const defaultOfferings: OfferingCardData[] = [
   {
     id: 'hospitality',
     tag: '01 / HOSPITALITY',
-    badge: 'Raw Nature & Culture',
+    badge: 'Experiential Hospitality',
     title: 'Experiential Hospitality',
     description:
       'Reconnect with untouched nature and raw culture. Step away from the digital chaos to rediscover barefoot childhood wonders, soulful community, and timeless earth.',
@@ -35,7 +35,7 @@ const defaultOfferings: OfferingCardData[] = [
   {
     id: 'healing',
     tag: '02 / WELLBEING & RETREAT',
-    badge: 'Restorative Sanctuary',
+    badge: 'The Healing Journey',
     title: 'The Healing Journey',
     description:
       'A deeply restorative sanctuary designed for leaders and visionaries to heal, release deep-seated trauma, and restore inner stillness with expert guides.',
