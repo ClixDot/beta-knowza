@@ -339,15 +339,15 @@ export const Home: React.FC = () => {
       {/* ========================================================
           01 HERO MONOLITH (INWARD SHRINK ON SCROLL)
           ======================================================== */}
-      <div ref={heroWrapperRef} className="relative h-[112vh] w-full bg-[#EDEABF]">
-        <div className="sticky top-0 h-screen h-[100vh] h-[100dvh] w-full flex items-center justify-center overflow-hidden">
+      <div ref={heroWrapperRef} className="relative h-[100dvh] h-[100vh] sm:h-[112vh] w-full bg-[#EDEABF]">
+        <div className="sticky top-0 h-[100dvh] h-[100vh] w-full flex items-center justify-center overflow-hidden">
           <motion.section
             style={{
               scale: heroScale,
               borderRadius: heroBorderRadius,
               transformOrigin: 'center center',
             }}
-            className="relative w-full h-full overflow-hidden bg-knowza-deep text-white flex flex-col justify-between px-5 sm:px-10 md:px-14 lg:px-20 pt-20 sm:pt-28 pb-6 sm:pb-10 shadow-2xl will-change-transform"
+            className="relative w-full h-full overflow-hidden bg-knowza-deep text-white flex flex-col justify-between px-4 sm:px-10 md:px-14 lg:px-20 pt-16 sm:pt-28 pb-4 sm:pb-10 shadow-2xl will-change-transform"
           >
             {/* Cinematic Background Image with Slow Scale */}
             <div className="absolute inset-0 z-0">
@@ -375,7 +375,7 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Top Spacer */}
-            <div className="h-2 sm:h-6" aria-hidden="true" />
+            <div className="h-0 sm:h-6" aria-hidden="true" />
 
             {/* Giant Architectural Display Headline */}
             <div className="relative z-10 max-w-6xl mx-auto my-auto w-full text-center">
@@ -387,11 +387,11 @@ export const Home: React.FC = () => {
               >
                 <motion.span
                   style={{ y: subY, opacity: headlineOpacity }}
-                  className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-knowza-cream/80 block mb-2 sm:mb-3 font-medium will-change-transform text-center"
+                  className="text-[9px] xs:text-[10px] sm:text-xs font-sans uppercase tracking-[0.24em] sm:tracking-[0.28em] text-knowza-cream/80 block mb-1.5 sm:mb-3 font-medium will-change-transform text-center"
                 >
                   EST. 2026 · EXPERIENTIAL SANCTUARY
                 </motion.span>
-                <h1 className="font-display font-black italic uppercase text-[30px] xs:text-[38px] sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[88px] 2xl:text-[100px] text-[#ECE7D7] tracking-[0.02em] sm:tracking-[0.04em] lg:tracking-[0.05em] leading-[0.92] sm:leading-[0.86] select-none break-words flex flex-col items-center text-center px-2">
+                <h1 className="font-display font-black italic uppercase text-[28px] xs:text-[36px] sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[88px] 2xl:text-[100px] text-[#ECE7D7] tracking-[0.02em] sm:tracking-[0.04em] lg:tracking-[0.05em] leading-[0.92] sm:leading-[0.86] select-none break-words flex flex-col items-center text-center px-1">
                   <motion.span
                     style={{ x: line1X, opacity: headlineOpacity }}
                     className="inline-block whitespace-nowrap will-change-transform"
@@ -416,18 +416,18 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Bottom Hero Bar */}
-            <div className="relative z-10 pt-4 sm:pt-8 flex justify-center w-full">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+            <div className="relative z-10 pt-2 sm:pt-8 pb-1 sm:pb-0 flex justify-center w-full">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-4">
                 <Link
                   to="/gallery"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-sans font-medium text-xs tracking-wider uppercase shadow-xl knowza-btn-liquid knowza-btn-liquid-white-fill group whitespace-nowrap"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-sans font-medium text-[11px] sm:text-xs tracking-wider uppercase shadow-xl knowza-btn-liquid knowza-btn-liquid-white-fill group whitespace-nowrap"
                 >
                   <span>Explore Sanctuaries</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
                 <Link
                   to="/about"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full font-sans font-medium text-xs tracking-wider uppercase knowza-btn-liquid knowza-btn-liquid-white group text-center whitespace-nowrap"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full font-sans font-medium text-[11px] sm:text-xs tracking-wider uppercase knowza-btn-liquid knowza-btn-liquid-white group text-center whitespace-nowrap"
                 >
                   <span>Our Story</span>
                 </Link>
