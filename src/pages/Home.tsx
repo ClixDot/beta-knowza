@@ -347,7 +347,7 @@ export const Home: React.FC = () => {
               borderRadius: heroBorderRadius,
               transformOrigin: 'center center',
             }}
-            className="relative w-full h-full overflow-hidden bg-knowza-deep text-white flex flex-col justify-between px-4 sm:px-10 md:px-14 lg:px-20 pt-16 sm:pt-28 pb-12 sm:pb-16 md:pb-20 shadow-2xl will-change-transform"
+            className="relative w-full h-full overflow-hidden bg-knowza-deep text-white flex flex-col items-center justify-center px-4 sm:px-10 md:px-14 lg:px-20 pt-14 sm:pt-20 pb-8 sm:pb-12 shadow-2xl will-change-transform"
           >
             {/* Cinematic Background Image with Slow Scale */}
             <div className="absolute inset-0 z-0">
@@ -374,20 +374,17 @@ export const Home: React.FC = () => {
               />
             </div>
 
-            {/* Top Spacer */}
-            <div className="h-0 sm:h-6" aria-hidden="true" />
-
-            {/* Giant Architectural Display Headline */}
-            <div className="relative z-10 max-w-6xl mx-auto my-auto w-full text-center">
+            {/* Giant Architectural Display Headline + Action Buttons */}
+            <div className="relative z-10 max-w-6xl mx-auto w-full text-center flex flex-col items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.1, ease: [0.25, 1, 0.5, 1] }}
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center w-full"
               >
                 <motion.span
                   style={{ y: subY, opacity: headlineOpacity }}
-                  className="text-[9px] xs:text-[10px] sm:text-xs font-sans uppercase tracking-[0.24em] sm:tracking-[0.28em] text-knowza-cream/80 block mb-1.5 sm:mb-3 font-medium will-change-transform text-center"
+                  className="text-[9px] xs:text-[10px] sm:text-xs font-sans uppercase tracking-[0.24em] sm:tracking-[0.28em] text-knowza-cream/80 block mb-2 sm:mb-3 font-medium will-change-transform text-center"
                 >
                   EST. 2026 · EXPERIENTIAL SANCTUARY
                 </motion.span>
@@ -412,26 +409,27 @@ export const Home: React.FC = () => {
                     <span className="whitespace-nowrap inline-block sm:ml-2.5">MEET.</span>
                   </motion.span>
                 </h1>
-              </motion.div>
-            </div>
 
-            {/* Bottom Hero Bar */}
-            <div className="relative z-10 pt-2 sm:pt-6 pb-4 sm:pb-4 mb-2 sm:mb-4 flex justify-center w-full">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-4">
-                <Link
-                  to="/gallery"
-                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-sans font-medium text-[11px] sm:text-xs tracking-wider uppercase shadow-xl knowza-btn-liquid knowza-btn-liquid-white-fill group whitespace-nowrap"
+                {/* Unified Hero Action Buttons */}
+                <motion.div
+                  style={{ opacity: headlineOpacity }}
+                  className="mt-5 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-4 w-full sm:w-auto px-6 xs:px-10 sm:px-0 max-w-xs sm:max-w-none mx-auto"
                 >
-                  <span>Explore Sanctuaries</span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full font-sans font-medium text-[11px] sm:text-xs tracking-wider uppercase knowza-btn-liquid knowza-btn-liquid-white group text-center whitespace-nowrap"
-                >
-                  <span>Our Story</span>
-                </Link>
-              </div>
+                  <Link
+                    to="/gallery"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-sans font-medium text-[11px] sm:text-xs tracking-wider uppercase shadow-xl knowza-btn-liquid knowza-btn-liquid-white-fill group whitespace-nowrap"
+                  >
+                    <span>Explore Sanctuaries</span>
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Link>
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full font-sans font-medium text-[11px] sm:text-xs tracking-wider uppercase knowza-btn-liquid knowza-btn-liquid-white group text-center whitespace-nowrap"
+                  >
+                    <span>Our Story</span>
+                  </Link>
+                </motion.div>
+              </motion.div>
             </div>
           </motion.section>
         </div>
