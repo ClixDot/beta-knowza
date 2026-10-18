@@ -102,7 +102,7 @@ export const Contact: React.FC = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             {/* Left Column: Dark Concierge Monolith & Sanctuary Info */}
-            <div className="lg:col-span-5 space-y-6 sm:space-y-8">
+            <div className="order-2 lg:order-1 lg:col-span-5 space-y-6 sm:space-y-8">
               {/* Dark Luxury Concierge Card */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -224,7 +224,7 @@ export const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.85, delay: 0.15 }}
-              className="lg:col-span-7 bg-[#FAF9F2] p-6 sm:p-10 md:p-14 rounded-[28px] sm:rounded-[32px] border border-black/10 shadow-xl"
+              className="order-1 lg:order-2 lg:col-span-7 bg-[#FAF9F2] p-6 sm:p-10 md:p-14 rounded-[28px] sm:rounded-[32px] border border-black/10 shadow-xl"
             >
               {isSubmitted ? (
                 <div className="py-16 text-center space-y-6">
