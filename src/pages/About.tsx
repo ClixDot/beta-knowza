@@ -21,6 +21,8 @@ import {
   MapPin,
   TrendingUp,
   Crosshair,
+  Quote,
+  X,
 } from 'lucide-react';
 import { Container } from '../components/Container';
 import { SectionLabel } from '../components/SectionLabel';
@@ -63,21 +65,21 @@ const ROADMAP_STAGES: RoadmapStageItem[] = [
     stageNumber: '01',
     stageBadge: 'STAGE 01 • ACTIVE',
     badgeDotClass: 'bg-[#8A7D4C]',
-    durationBadge: '05 YRS',
-    timeframe: 'Years 01 – 05',
+    durationBadge: '2032',
+    timeframe: 'Target 2032',
     phaseStatus: 'Active Phase',
     horizonTag: '01 / FOUNDATIONAL ROOTS',
     title: 'South India Presence',
     quote: 'Establish a solid, impactful presence across South India.',
-    narrative: 'Planting the foundational roots of experiential sanctuaries across pristine bio-corridors in the Western Ghats, Nilgiris, and coastal backwaters.',
+    narrative: 'Planting the foundational roots of experiential sanctuaries across pristine bio-corridors, sacred living forests, and restorative nature habitats.',
     image: '/images/gallery/tea-hills.jpg',
-    imageAlt: 'South India Western Ghats sanctuaries in morning mist',
-    targetRegion: 'Western Ghats & Malabar',
+    imageAlt: 'Foundational experiential sanctuaries in morning mist',
+    targetRegion: 'Foundational Sanctuaries',
     coordinates: '11.6854° N, 76.1320° E',
     elevation: '1,420m MSL',
     focalSpec: '35mm • f/2.4 Lens Focus',
     highlights: [
-      { icon: MapPin, text: 'Western Ghats, Wayanad, Coorg & Malabar' },
+      { icon: Compass, text: 'Immersive nature sanctuaries connecting culture, stillness & living earth' },
       { icon: Recycle, text: 'Zero-plastic operating standard across all units' },
       { icon: Users, text: 'Direct alliances with local indigenous stewards' },
     ],
@@ -87,21 +89,21 @@ const ROADMAP_STAGES: RoadmapStageItem[] = [
     stageNumber: '02',
     stageBadge: 'STAGE 02 • STRATEGIC',
     badgeDotClass: 'bg-[#79864B]',
-    durationBadge: '10 YRS',
-    timeframe: 'Years 06 – 10',
+    durationBadge: '2038',
+    timeframe: 'Target 2038',
     phaseStatus: 'Strategic Blueprint',
     horizonTag: '02 / NATIONWIDE SCALE',
     title: 'Pan-India Eco-Network',
     quote: 'Scale nationwide to build a recognized pan-India eco-hospitality network.',
-    narrative: 'Expanding across India’s diverse geographical biomes—from Himalayan valleys to coastal shores—setting the benchmark for regenerative stays.',
+    narrative: 'Expanding across diverse geographical biomes, setting the national benchmark for regenerative stays and conscious eco-hospitality.',
     image: '/images/gallery/treehouse-retreat.png',
     imageAlt: 'Pan-India eco-hospitality network treehouse sanctuary',
-    targetRegion: 'Himalayas & Konkan Coast',
+    targetRegion: 'Nationwide Eco-Network',
     coordinates: '32.2190° N, 76.3234° E',
     elevation: '2,180m MSL',
     focalSpec: '50mm • f/2.0 Lens Focus',
     highlights: [
-      { icon: Mountain, text: 'Himalayan ridges, central forests & Konkan coast' },
+      { icon: Mountain, text: 'Pioneering regenerative stays across diverse geographical biomes' },
       { icon: Leaf, text: 'National benchmark for carbon-negative retreats' },
       { icon: TrendingUp, text: 'Conscious hospitality youth stewardship programs' },
     ],
@@ -111,8 +113,8 @@ const ROADMAP_STAGES: RoadmapStageItem[] = [
     stageNumber: '03',
     stageBadge: 'STAGE 03 • GLOBAL',
     badgeDotClass: 'bg-knowza-dark',
-    durationBadge: 'GLOBAL',
-    timeframe: 'Decade 2 & Beyond',
+    durationBadge: 'AFTER 2038',
+    timeframe: '2038 & Beyond',
     phaseStatus: 'Global Horizon',
     horizonTag: '03 / GLOBAL COMMUNION',
     title: 'International & Global Tribe',
@@ -126,7 +128,7 @@ const ROADMAP_STAGES: RoadmapStageItem[] = [
     focalSpec: '24mm • f/2.8 Lens Focus',
     highlights: [
       { icon: Globe, text: 'International eco-tourism & conscious travel circuits' },
-      { icon: Sparkles, text: "Global recognition for India's holistic wellness model" },
+      { icon: Sparkles, text: "Global recognition for India's holistic healing model" },
       { icon: ShieldCheck, text: 'Worldwide community committed to regenerative travel' },
     ],
   },
@@ -162,11 +164,11 @@ const VISION_POINTS: VisionPointItem[] = [
     icon: Sun,
   },
   {
-    id: 'shift-wellness',
+    id: 'shift-healing',
     number: '03',
     category: 'ROOT-CAUSE RESTORATION',
-    title: 'The Shift from Conventional Wellness',
-    text: 'Knowza is not another resort or transactional wellness retreat. It exists to address a deeper human problem: the chronic mental exhaustion, emotional burdens, and disconnection that come with modern living.',
+    title: 'The Shift from Conventional Healing',
+    text: 'Knowza is not another resort or transactional healing retreat. It exists to address a deeper human problem: the chronic mental exhaustion, emotional burdens, and disconnection that come with modern living.',
     highlight: 'Beyond Transactional Resorts',
     icon: Heart,
   },
@@ -192,8 +194,8 @@ const VISION_POINTS: VisionPointItem[] = [
     id: 'sustainable-living',
     number: '06',
     category: 'NATIONAL BLUEPRINT',
-    title: 'A Vision for Sustainable Living and Holistic Wellness',
-    text: 'Knowza envisions pioneering sustainable living and holistic wellness in India by reconnecting people with nature, protecting the environment, and positioning India as a premier eco-conscious destination on the global stage.',
+    title: 'A Vision for Sustainable Living and Holistic Healing',
+    text: 'Knowza envisions pioneering sustainable living and holistic healing in India by reconnecting people with nature, protecting the environment, and positioning India as a premier eco-conscious destination on the global stage.',
     highlight: "Pioneering India's Eco-Conscious Stage",
     icon: Compass,
   },
@@ -220,7 +222,7 @@ const VISION_POINTS: VisionPointItem[] = [
     number: '09',
     category: 'GLOBAL RECOGNITION',
     title: 'Transforming India into a Global Eco-Tourism Destination',
-    text: "Knowza aspires to contribute to the transformation of Indian eco-tourism by welcoming international travellers through immersive, nature-first, world-class experiences. By combining India's natural beauty, cultural richness, wellness traditions, and sustainable practices, Knowza aims to help position the country as a destination for conscious travel and holistic well-being.",
+    text: "Knowza aspires to contribute to the transformation of Indian eco-tourism by welcoming international travellers through immersive, nature-first, world-class experiences. By combining India's natural beauty, cultural richness, healing traditions, and sustainable practices, Knowza aims to help position the country as a destination for conscious travel and holistic well-being.",
     highlight: 'Conscious World-Class Travel',
     icon: Globe,
   },
@@ -323,7 +325,7 @@ const MISSION_POINTS: MissionPointItem[] = [
     number: '09',
     category: 'GLOBAL ECO-HOSPITALITY',
     title: 'Delivering Global-Standard Eco-Hospitality',
-    text: 'We blend traditional Indian wellness practices and authentic eco-tourism with world-class hospitality standards, offering seamless, nature-first travel experiences that attract conscious international travellers.',
+    text: 'We blend traditional Indian healing practices and authentic eco-tourism with world-class hospitality standards, offering seamless, nature-first travel experiences that attract conscious international travellers.',
     highlight: 'Conscious International Eco-Tourism',
     icon: Globe,
   },
@@ -405,6 +407,93 @@ const CORE_VALUES: ValuePointItem[] = [
   },
 ];
 
+interface WaveParagraphProps {
+  text: string;
+  className?: string;
+  delay?: number;
+  dropCap?: string;
+}
+
+const WaveParagraph: React.FC<WaveParagraphProps> = ({
+  text,
+  className = '',
+  delay = 0,
+  dropCap,
+}) => {
+  const words = text.split(' ');
+  const prefersReduced =
+    typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  return (
+    <motion.p
+      initial={prefersReduced ? 'visible' : 'hidden'}
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      className={`leading-relaxed ${className}`}
+    >
+      {dropCap && (
+        <motion.span
+          variants={{
+            hidden: { opacity: 0, y: prefersReduced ? 0 : 20, scale: 0.92 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: prefersReduced
+                ? { duration: 0 }
+                : {
+                    type: 'spring',
+                    damping: 16,
+                    stiffness: 120,
+                    delay: delay,
+                  },
+            },
+          }}
+          className="float-left text-4xl sm:text-5xl font-serif leading-none pr-1.5 pt-0.5 text-[#79864B] font-normal select-none"
+        >
+          {dropCap}
+        </motion.span>
+      )}
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: prefersReduced ? 0 : 16,
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                y: prefersReduced
+                  ? { duration: 0 }
+                  : {
+                      type: 'spring',
+                      damping: 14,
+                      stiffness: 120,
+                      mass: 0.5,
+                      delay: delay + i * 0.016,
+                    },
+                opacity: {
+                  duration: prefersReduced ? 0 : 0.4,
+                  delay: delay + i * 0.016,
+                  ease: 'easeOut',
+                },
+              },
+            },
+          }}
+          className="inline-block mr-[0.28em] will-change-transform"
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.p>
+  );
+};
+
 export const About: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroBannerRef = useRef<HTMLDivElement>(null);
@@ -415,6 +504,20 @@ export const About: React.FC = () => {
   const quoteCardRef = useRef<HTMLDivElement>(null);
   const [activeFilter, setActiveFilter] = useState<'vision' | 'mission' | 'values'>('vision');
   const [focusedRoadmapIndex, setFocusedRoadmapIndex] = useState<number | null>(null);
+  const [isCharterOpen, setIsCharterOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isCharterOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsCharterOpen(false);
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isCharterOpen]);
 
   useEffect(() => {
     // Refresh ScrollTrigger when filter updates
@@ -571,23 +674,7 @@ export const About: React.FC = () => {
         }
       });
 
-      // ========================================================
-      // 03.5 VISION & MISSION REVEAL
-      // ========================================================
-      const vmCards = gsap.utils.toArray<HTMLElement>('.gsap-vm-card');
-      vmCards.forEach((card, index) => {
-        gsap.from(card, {
-          y: 40,
-          opacity: 0,
-          duration: 0.85,
-          delay: index * 0.14,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-          },
-        });
-      });
+
 
 
 
@@ -643,6 +730,29 @@ export const About: React.FC = () => {
           scrub: 2,
         },
       });
+
+      // ========================================================
+      // 06.5 FOUNDER MONOGRAPH & SIGNATURE ANIMATIONS
+      // ========================================================
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        gsap.fromTo(
+          '.gsap-signature-path',
+          { strokeDashoffset: 450 },
+          {
+            strokeDashoffset: 0,
+            duration: 2.2,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: '.gsap-signature-block',
+              start: 'top 90%',
+            },
+          }
+        );
+      } else {
+        gsap.set('.gsap-signature-path', { strokeDashoffset: 0 });
+      }
     }, containerRef);
 
     return () => ctx.revert();
@@ -774,18 +884,18 @@ export const About: React.FC = () => {
           </div>
 
           <div className="space-y-12 sm:space-y-16">
-            <AnimatePresence mode="sync">
+            <AnimatePresence mode="wait">
               {/* ========================================================
                   01 OUR VISION SHOWCASE
                   ======================================================== */}
               {activeFilter === 'vision' && (
                 <motion.div
                   key="vision-block"
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="gsap-vm-card bg-[#FAF9F2] rounded-2xl sm:rounded-3xl md:rounded-[36px] p-4 sm:p-8 md:p-12 border border-black/10 shadow-[0_12px_45px_-15px_rgba(37,39,31,0.08)] hover:shadow-[0_24px_60px_-16px_rgba(40,53,31,0.16)] transition-all duration-500 relative overflow-hidden group"
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.22, ease: 'easeOut' }}
+                  className="bg-[#FAF9F2] rounded-2xl sm:rounded-3xl md:rounded-[36px] p-4 sm:p-8 md:p-12 border border-black/10 shadow-[0_12px_45px_-15px_rgba(37,39,31,0.08)] hover:shadow-[0_24px_60px_-16px_rgba(40,53,31,0.16)] transition-all duration-500 relative overflow-hidden group"
                 >
                   {/* Faint Corner Watermark */}
                   <span className="absolute -bottom-6 -right-6 text-[70px] sm:text-[120px] md:text-[140px] font-serif font-bold text-black/[0.025] select-none pointer-events-none leading-none">
@@ -823,7 +933,7 @@ export const About: React.FC = () => {
                     <div className="relative z-10 space-y-3 sm:space-y-4 max-w-4xl pt-6 sm:pt-12">
                       <div className="w-8 sm:w-12 h-[2px] bg-[#8A7D4C]" />
                       <blockquote className="text-base sm:text-2xl md:text-3xl font-serif font-light italic text-[#FAF9F2] leading-snug tracking-tight">
-                        "To pioneer sustainable living and holistic wellness in India by reconnecting people with nature, protecting our environment, and positioning India as a premier eco-conscious destination on the global stage."
+                        "To pioneer sustainable living and holistic healing in India by reconnecting people with nature, protecting our environment, and positioning India as a premier eco-conscious destination on the global stage."
                       </blockquote>
                       <p className="text-xs sm:text-sm font-sans text-white/85 font-light leading-relaxed pt-2 border-t border-white/15 max-w-3xl">
                         Individual restoration is the starting point, not the final destination. Emotionally healthier individuals build a conscious society, responsible communities protect the environment, and collective action shapes a sustainable India for generations to come.
@@ -910,11 +1020,11 @@ export const About: React.FC = () => {
               {activeFilter === 'mission' && (
                 <motion.div
                   key="mission-block"
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="gsap-vm-card bg-[#FAF9F2] rounded-2xl sm:rounded-3xl md:rounded-[36px] p-4 sm:p-8 md:p-12 border border-black/10 shadow-[0_12px_45px_-15px_rgba(37,39,31,0.08)] hover:shadow-[0_24px_60px_-16px_rgba(40,53,31,0.16)] transition-all duration-500 relative overflow-hidden group"
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.22, ease: 'easeOut' }}
+                  className="bg-[#FAF9F2] rounded-2xl sm:rounded-3xl md:rounded-[36px] p-4 sm:p-8 md:p-12 border border-black/10 shadow-[0_12px_45px_-15px_rgba(37,39,31,0.08)] hover:shadow-[0_24px_60px_-16px_rgba(40,53,31,0.16)] transition-all duration-500 relative overflow-hidden group"
                 >
                   {/* Faint Corner Watermark */}
                   <span className="absolute -bottom-6 -left-6 text-[70px] sm:text-[120px] md:text-[140px] font-serif font-bold text-black/[0.025] select-none pointer-events-none leading-none">
@@ -1039,11 +1149,11 @@ export const About: React.FC = () => {
               {activeFilter === 'values' && (
                 <motion.div
                   key="values-block"
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="gsap-vm-card bg-[#FAF9F2] rounded-2xl sm:rounded-3xl md:rounded-[36px] p-4 sm:p-8 md:p-12 border border-black/10 shadow-[0_12px_45px_-15px_rgba(37,39,31,0.08)] hover:shadow-[0_24px_60px_-16px_rgba(40,53,31,0.16)] transition-all duration-500 relative overflow-hidden group"
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.22, ease: 'easeOut' }}
+                  className="bg-[#FAF9F2] rounded-2xl sm:rounded-3xl md:rounded-[36px] p-4 sm:p-8 md:p-12 border border-black/10 shadow-[0_12px_45px_-15px_rgba(37,39,31,0.08)] hover:shadow-[0_24px_60px_-16px_rgba(40,53,31,0.16)] transition-all duration-500 relative overflow-hidden group"
                 >
                   {/* Faint Corner Watermark */}
                   <span className="absolute -bottom-6 -right-6 text-[70px] sm:text-[120px] md:text-[140px] font-serif font-bold text-black/[0.025] select-none pointer-events-none leading-none">
@@ -1643,7 +1753,279 @@ export const About: React.FC = () => {
       </section>
 
       {/* ========================================================
-          06 CLOSING CTA SECTION
+          06 FOUNDER SECTION: THE EDITORIAL MONOGRAPH & PERSONAL DISPATCH
+          ======================================================== */}
+      <section className="gsap-founder-section py-20 sm:py-28 md:py-36 bg-[#FBF9F4] border-t border-black/8 relative overflow-hidden">
+        {/* Subtle architectural ambient warmth */}
+        <div 
+          className="absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_-15%,rgba(138,125,76,0.06),transparent)] pointer-events-none"
+          aria-hidden="true" 
+        />
+
+        <Container className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 lg:gap-20 items-start">
+
+            {/* Left Column (5 Cols): Editorial Archival Portrait & Provenance Plaque */}
+            <div className="lg:col-span-5 lg:sticky lg:top-28">
+              <div className="bg-[#F3EFE7] p-3 sm:p-4 rounded-2xl sm:rounded-[28px] border border-black/8 shadow-[0_20px_50px_-20px_rgba(43,53,30,0.12)]">
+                {/* Portrait Photo */}
+                <div className="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[3.7/4.6] bg-knowza-deep shadow-2xs group">
+                  <img
+                    src="/founder.jpg"
+                    alt="Mohammed Safwan - Founder, Knowza"
+                    className="w-full h-full object-cover object-[50%_14%] group-hover:scale-102 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                    decoding="async"
+                    width={1200}
+                    height={2132}
+                  />
+                  {/* Subtle tonal bottom vignette for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                {/* Museum Provenance Plaque */}
+                <div className="pt-3.5 mt-3.5 border-t border-black/8 flex items-end justify-between text-knowza-dark">
+                  <div className="space-y-0.5">
+                    <span className="text-[13px] sm:text-sm font-serif uppercase tracking-[0.2em] text-knowza-dark font-medium block">
+                      Mohammed Safwan
+                    </span>
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-[#8A7D4C] font-mono block">
+                      Founder &bull; CEO
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[9px] font-mono uppercase tracking-widest text-knowza-dark/50 block">
+                      South India &bull; Est. 2024
+                    </span>
+                  </div>
+                </div>
+
+                {/* Integrated Core Philosophy Caption */}
+                <div className="pt-3 mt-3 border-t border-black/6">
+                  <p className="text-xs sm:text-[13px] font-serif italic text-knowza-dark/85 leading-relaxed">
+                    &ldquo;An emotionally restored individual can become a powerful catalyst for positive change.&rdquo;
+                  </p>
+                  <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#8A7D4C] block mt-1 font-medium">
+                    &mdash; Guiding Conviction
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column (7 Cols): The Founder's Letter & Strategic Narrative */}
+            <div className="lg:col-span-7 space-y-8 sm:space-y-10">
+              {/* Dispatch Header */}
+              <div className="space-y-3.5">
+                <div className="inline-flex items-center gap-2.5">
+                  <span className="w-8 h-[1px] bg-[#8A7D4C]" />
+                  <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.28em] text-[#8A7D4C] font-semibold">
+                    A NOTE FROM THE FOUNDER
+                  </span>
+                </div>
+
+                <TypewriterHeading
+                  className="text-2xl xs:text-3xl sm:text-4xl md:text-[42px] lg:text-[44px] font-serif font-light text-knowza-dark leading-[1.2] tracking-tight max-w-2xl"
+                  segments={[
+                    {
+                      text: '"True hospitality doesn\'t simply host you — ',
+                      className: 'text-knowza-dark',
+                    },
+                    {
+                      text: 'it restores who you were before the modern noise began."',
+                      className: 'text-[#79864B] italic font-normal',
+                    },
+                  ]}
+                />
+              </div>
+
+              {/* Personal Essay Narrative: 3 Distinct Movements */}
+              <div className="space-y-6 text-sm sm:text-[15px] font-sans text-knowza-dark/85 font-light leading-[1.8] border-t border-black/10 pt-6 sm:pt-8">
+                {/* Movement 1: The Modern Condition */}
+                <WaveParagraph
+                  dropCap="W"
+                  text="e live in an age of constant connectivity, yet profound human disconnection. Leaders, visionaries, and thinkers carry relentless mental pressure, while the quiet rhythms that once grounded human life have faded into digital acceleration."
+                  delay={0.05}
+                />
+
+                {/* Movement 2: The Restoration Philosophy (Distinct Editorial Callout) */}
+                <div className="border-l-2 border-[#79864B]/40 pl-5 sm:pl-6 my-4 bg-[#F3EFE7]/45 rounded-r-xl py-4 pr-4">
+                  <span className="text-[9px] font-mono uppercase tracking-[0.22em] text-[#8A7D4C] block mb-1.5 font-semibold">
+                    RESTORATIVE CONVICTION
+                  </span>
+                  <WaveParagraph
+                    text="Knowza was not created to build another resort. It was born from a fundamental conviction: that when you place an emotionally burdened individual into the quiet cadence of living soil, clean mist, and ancient canopy trees, real restoration happens organically. Individual well-being is not a luxury; it is the prerequisite for all meaningful human contribution."
+                    delay={0.16}
+                    className="italic text-knowza-dark/90"
+                  />
+                </div>
+
+                {/* Movement 3: The Environmental Crusade */}
+                <WaveParagraph
+                  text="Our ambition reaches far beyond hospitality. By mobilizing the collective influence of our community and adhering to uncompromising zero-plastic operating disciplines, our long-term crusade is to champion environmental resilience and advance the vision of a Plastic-Free India by 2050."
+                  delay={0.28}
+                />
+              </div>
+
+              {/* Hand-drawn Ink Signature & Authentic Sign-off Block */}
+              <div className="gsap-signature-block pt-7 sm:pt-9 border-t border-black/10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                <div className="space-y-3">
+                  <span className="text-[9px] font-mono uppercase tracking-[0.24em] text-[#8A7D4C] block font-semibold">
+                    FOUNDER'S PERSONAL ENDORSEMENT
+                  </span>
+
+                  {/* Flowing Ink Signature SVG */}
+                  <div className="w-52 h-13 relative text-[#79864B]">
+                    <svg viewBox="0 0 240 55" className="w-full h-full overflow-visible" aria-hidden="true">
+                      <path
+                        className="gsap-signature-path"
+                        d="M 15 38 Q 24 12 32 24 Q 40 42 46 26 Q 52 14 60 38 Q 70 28 78 38 Q 86 22 94 34 Q 100 26 108 36 Q 116 16 122 40 Q 130 28 140 34 Q 150 28 162 36 Q 174 14 180 40 M 24 47 C 65 43 130 45 205 41 C 220 40 230 38 224 44 C 205 50 160 53 130 52"
+                        fill="none"
+                        stroke="#79864B"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ strokeDasharray: 450, strokeDashoffset: 0 }}
+                      />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <span className="text-base sm:text-lg font-serif font-medium text-knowza-dark block">
+                      Mohammed Safwan
+                    </span>
+                    <span className="text-xs font-mono text-knowza-dark/65 tracking-wider block mt-0.5">
+                      Founder &amp; CEO &bull; Knowza Eco-Hospitality Group
+                    </span>
+                  </div>
+                </div>
+
+                {/* Functional Charter Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsCharterOpen(true)}
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#EDEABF]/80 hover:bg-[#EDEABF] border border-[#8A7D4C]/35 hover:border-[#8A7D4C]/60 shadow-xs text-knowza-dark transition-all duration-300 group self-start sm:self-auto cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#79864B]/40"
+                  aria-haspopup="dialog"
+                  aria-expanded={isCharterOpen}
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#79864B] ring-2 ring-[#79864B]/20 animate-pulse" />
+                  <span className="font-mono uppercase tracking-[0.2em] text-[10px] sm:text-[11px] text-[#2B351E] font-semibold">
+                    Founding Covenant &amp; Earth Charter
+                  </span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#8A7D4C] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </Container>
+      </section>
+
+      {/* ========================================================
+          THE FOUNDING COVENANT & EARTH CHARTER MODAL
+          ======================================================== */}
+      <AnimatePresence>
+        {isCharterOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="charter-modal-title"
+            onClick={() => setIsCharterOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#FBF9F4] border border-[#8A7D4C]/30 rounded-2xl sm:rounded-3xl shadow-2xl max-w-2xl w-full p-6 sm:p-10 relative overflow-hidden text-knowza-dark space-y-6 max-h-[90vh] overflow-y-auto"
+            >
+              {/* Header */}
+              <div className="flex items-start justify-between border-b border-black/10 pb-4">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.26em] text-[#8A7D4C] font-semibold block">
+                    FOUNDING CHARTER &bull; SOUTH INDIA
+                  </span>
+                  <h3 id="charter-modal-title" className="text-xl sm:text-2xl font-serif font-normal text-knowza-dark">
+                    The Founding Covenant &amp; Earth Charter
+                  </h3>
+                  <p className="text-xs font-mono text-knowza-dark/60 tracking-wider">
+                    Authorised by Mohammed Safwan, Founder &amp; CEO
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsCharterOpen(false)}
+                  className="p-2 rounded-full hover:bg-black/5 text-knowza-dark/70 hover:text-knowza-dark transition-colors cursor-pointer"
+                  aria-label="Close charter modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* 3 Foundational Articles */}
+              <div className="space-y-5 text-xs sm:text-[13px] font-sans text-knowza-dark/85 font-light leading-relaxed">
+                <div className="p-4 rounded-xl bg-[#F3EFE7]/60 border border-black/6 space-y-1">
+                  <div className="flex items-center gap-2 text-[#79864B]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#79864B]" />
+                    <span className="font-mono uppercase tracking-widest text-[10px] font-semibold">
+                      Article I: Sacred Stillness &amp; Emotional Restoration
+                    </span>
+                  </div>
+                  <p className="text-knowza-dark/80">
+                    We pledge that Knowza shall never treat human recovery as a commercial luxury. Every sanctuary is consecrated to quietude, unpolluted air, living soil, and ancient tree canopies &mdash; returning modern leaders to deep inner alignment.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#F3EFE7]/60 border border-black/6 space-y-1">
+                  <div className="flex items-center gap-2 text-[#79864B]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#79864B]" />
+                    <span className="font-mono uppercase tracking-widest text-[10px] font-semibold">
+                      Article II: Architectural Humility &amp; Indigenous Craft
+                    </span>
+                  </div>
+                  <p className="text-knowza-dark/80">
+                    We commit to building in slow partnership with native terrain. No intrusive concrete monuments &mdash; our structures employ breathable lime plasters, unpolished stones, reclaimed timber, and natural hydrological circuits.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#F3EFE7]/60 border border-black/6 space-y-1">
+                  <div className="flex items-center gap-2 text-[#79864B]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#79864B]" />
+                    <span className="font-mono uppercase tracking-widest text-[10px] font-semibold">
+                      Article III: Zero-Plastic India by 2050 Mandate
+                    </span>
+                  </div>
+                  <p className="text-knowza-dark/80">
+                    We enforce an uncompromising zero-single-use-plastic discipline across our supply chains, guest journeys, and property operations, standing as an active vanguard for environmental resilience.
+                  </p>
+                </div>
+              </div>
+
+              {/* Sign-off & Seal in Modal */}
+              <div className="pt-4 border-t border-black/10 flex items-center justify-between">
+                <div>
+                  <span className="text-sm font-serif font-medium text-knowza-dark block">
+                    Mohammed Safwan
+                  </span>
+                  <span className="text-[10px] font-mono text-knowza-dark/50 tracking-wider block">
+                    Founder &amp; CEO &bull; Knowza
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="inline-block px-3 py-1 rounded-md bg-[#EDEABF] text-[9px] font-mono uppercase tracking-widest text-[#79864B] font-semibold border border-[#79864B]/20">
+                    OFFICIAL CHARTER RECORD
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* ========================================================
+          07 CLOSING CTA SECTION
           ======================================================== */}
       <CTASection />
     </div>

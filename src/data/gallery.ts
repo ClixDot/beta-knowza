@@ -135,7 +135,7 @@ export const galleryItems: GalleryItem[] = [
     id: 'g-14',
     title: 'Dawn Mudra Meditation',
     category: 'CULTURE',
-    description: 'Practicing mindful stillness at the break of dawn, guided by ancient wellness traditions of South India.',
+    description: 'Practicing mindful stillness at the break of dawn, guided by ancient healing traditions of South India.',
     image: '/images/about/presence.png',
     aspectRatio: 'portrait',
     location: 'Sunrise Yoga Pavillion',

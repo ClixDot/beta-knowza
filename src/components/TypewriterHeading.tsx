@@ -45,10 +45,20 @@ export const TypewriterHeading: React.FC<TypewriterHeadingProps> = ({
   });
 
   useEffect(() => {
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) {
+      setTypedCount(totalChars);
+      return;
+    }
+
     const updateFromScroll = (latest: number) => {
       const clamped = Math.max(0, Math.min(1, latest));
       const count = Math.round(clamped * totalChars);
-      setTypedCount(count);
+      setTypedCount((prev) => (prev === count ? prev : count));
     };
 
     const unsubscribe = scrollYProgress.on('change', updateFromScroll);
