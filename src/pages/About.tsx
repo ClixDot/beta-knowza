@@ -444,11 +444,11 @@ const WaveParagraph: React.FC<WaveParagraphProps> = ({
               transition: prefersReduced
                 ? { duration: 0 }
                 : {
-                    type: 'spring',
-                    damping: 16,
-                    stiffness: 120,
-                    delay: delay,
-                  },
+                  type: 'spring',
+                  damping: 16,
+                  stiffness: 120,
+                  delay: delay,
+                },
             },
           }}
           className="float-left text-4xl sm:text-5xl font-serif leading-none pr-1.5 pt-0.5 text-[#79864B] font-normal select-none"
@@ -471,12 +471,12 @@ const WaveParagraph: React.FC<WaveParagraphProps> = ({
                 y: prefersReduced
                   ? { duration: 0 }
                   : {
-                      type: 'spring',
-                      damping: 14,
-                      stiffness: 120,
-                      mass: 0.5,
-                      delay: delay + i * 0.016,
-                    },
+                    type: 'spring',
+                    damping: 14,
+                    stiffness: 120,
+                    mass: 0.5,
+                    delay: delay + i * 0.016,
+                  },
                 opacity: {
                   duration: prefersReduced ? 0 : 0.4,
                   delay: delay + i * 0.016,
@@ -846,11 +846,10 @@ export const About: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveFilter('vision')}
-                  className={`w-full sm:w-auto px-2 xs:px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider font-medium transition-all duration-300 cursor-pointer text-center flex items-center justify-center ${
-                    activeFilter === 'vision'
+                  className={`w-full sm:w-auto px-2 xs:px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider font-medium transition-all duration-300 cursor-pointer text-center flex items-center justify-center ${activeFilter === 'vision'
                       ? 'bg-[#8A7D4C] text-[#FAF9F2] shadow-md'
                       : 'text-knowza-dark/70 hover:text-knowza-dark hover:bg-black/5'
-                  }`}
+                    }`}
                 >
                   <span className="sm:hidden">01 / Vision</span>
                   <span className="hidden sm:inline">01 / Our Vision</span>
@@ -858,11 +857,10 @@ export const About: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveFilter('mission')}
-                  className={`w-full sm:w-auto px-2 xs:px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider font-medium transition-all duration-300 cursor-pointer text-center flex items-center justify-center ${
-                    activeFilter === 'mission'
+                  className={`w-full sm:w-auto px-2 xs:px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider font-medium transition-all duration-300 cursor-pointer text-center flex items-center justify-center ${activeFilter === 'mission'
                       ? 'bg-[#79864B] text-[#FAF9F2] shadow-md'
                       : 'text-knowza-dark/70 hover:text-knowza-dark hover:bg-black/5'
-                  }`}
+                    }`}
                 >
                   <span className="sm:hidden">02 / Mission</span>
                   <span className="hidden sm:inline">02 / Our Mission</span>
@@ -870,11 +868,10 @@ export const About: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveFilter('values')}
-                  className={`w-full sm:w-auto px-2 xs:px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider font-medium transition-all duration-300 cursor-pointer text-center flex items-center justify-center ${
-                    activeFilter === 'values'
+                  className={`w-full sm:w-auto px-2 xs:px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] xs:text-[11px] sm:text-xs uppercase tracking-wider font-medium transition-all duration-300 cursor-pointer text-center flex items-center justify-center ${activeFilter === 'values'
                       ? 'bg-[#556038] text-[#FAF9F2] shadow-md'
                       : 'text-knowza-dark/70 hover:text-knowza-dark hover:bg-black/5'
-                  }`}
+                    }`}
                 >
                   <span className="sm:hidden">03 / Values</span>
                   <span className="hidden sm:inline">03 / Core Values</span>
@@ -1305,16 +1302,14 @@ export const About: React.FC = () => {
                     key={stage.id}
                     type="button"
                     onClick={() => setFocusedRoadmapIndex(isFocused ? null : idx)}
-                    className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-[10px] font-medium transition-all duration-300 cursor-pointer ${
-                      isFocused
+                    className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-[10px] font-medium transition-all duration-300 cursor-pointer ${isFocused
                         ? 'bg-knowza-dark text-[#FAF9F2] shadow-sm'
                         : 'bg-black/[0.06] text-knowza-dark/75 hover:bg-black/10'
-                    }`}
+                      }`}
                   >
                     <span
-                      className={`w-4 h-4 rounded-full text-[9px] font-mono flex items-center justify-center font-bold ${
-                        isFocused ? 'bg-[#79864B] text-white' : 'bg-black/20 text-knowza-dark'
-                      }`}
+                      className={`w-4 h-4 rounded-full text-[9px] font-mono flex items-center justify-center font-bold ${isFocused ? 'bg-[#79864B] text-white' : 'bg-black/20 text-knowza-dark'
+                        }`}
                     >
                       {stage.stageNumber}
                     </span>
@@ -1334,27 +1329,24 @@ export const About: React.FC = () => {
                   <React.Fragment key={stage.id}>
                     {idx > 0 && (
                       <div
-                        className={`w-12 lg:w-16 h-[1.5px] transition-colors duration-300 ${
-                          focusedRoadmapIndex === idx || focusedRoadmapIndex === idx - 1
+                        className={`w-12 lg:w-16 h-[1.5px] transition-colors duration-300 ${focusedRoadmapIndex === idx || focusedRoadmapIndex === idx - 1
                             ? 'bg-[#79864B]'
                             : 'bg-black/15'
-                        }`}
+                          }`}
                       />
                     )}
                     <button
                       type="button"
                       onClick={() => setFocusedRoadmapIndex(isFocused ? null : idx)}
                       onMouseEnter={() => setFocusedRoadmapIndex(idx)}
-                      className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                        isFocused
+                      className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all duration-300 cursor-pointer ${isFocused
                           ? 'bg-knowza-dark text-[#FAF9F2] shadow-md scale-105'
                           : 'bg-black/[0.05] hover:bg-black/10 text-knowza-dark/80'
-                      }`}
+                        }`}
                     >
                       <span
-                        className={`w-5 h-5 rounded-full text-[10px] font-mono flex items-center justify-center font-bold ${
-                          isFocused ? 'bg-[#79864B] text-white' : 'bg-black/20 text-knowza-dark'
-                        }`}
+                        className={`w-5 h-5 rounded-full text-[10px] font-mono flex items-center justify-center font-bold ${isFocused ? 'bg-[#79864B] text-white' : 'bg-black/20 text-knowza-dark'
+                          }`}
                       >
                         {stage.stageNumber}
                       </span>
@@ -1385,13 +1377,12 @@ export const About: React.FC = () => {
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.7, delay: index * 0.12 }}
                   onMouseEnter={() => setFocusedRoadmapIndex(index)}
-                  className={`min-h-[460px] xs:min-h-[500px] sm:min-h-[580px] md:min-h-[640px] rounded-2xl sm:rounded-3xl md:rounded-[36px] overflow-hidden relative flex flex-col justify-between p-4 sm:p-6 transition-all duration-500 group cursor-default select-none ${
-                    isCardFocused
+                  className={`min-h-[460px] xs:min-h-[500px] sm:min-h-[580px] md:min-h-[640px] rounded-2xl sm:rounded-3xl md:rounded-[36px] overflow-hidden relative flex flex-col justify-between p-4 sm:p-6 transition-all duration-500 group cursor-default select-none ${isCardFocused
                       ? 'scale-[1.01] sm:scale-[1.03] shadow-[0_32px_80px_-15px_rgba(0,0,0,0.55)] ring-2 ring-[#79864B] z-20'
                       : isSiblingFocused
-                      ? 'opacity-85 filter brightness-95 scale-[0.99] border border-black/10 shadow-md z-10'
-                      : 'border border-black/10 shadow-[0_10px_35px_-8px_rgba(37,39,31,0.12)] z-10'
-                  }`}
+                        ? 'opacity-85 filter brightness-95 scale-[0.99] border border-black/10 shadow-md z-10'
+                        : 'border border-black/10 shadow-[0_10px_35px_-8px_rgba(37,39,31,0.12)] z-10'
+                    }`}
                 >
                   {/* Full-Bleed Commanding Sanctuary Background Photo */}
                   <div className="absolute inset-0 z-0 overflow-hidden bg-knowza-deep">
@@ -1757,9 +1748,9 @@ export const About: React.FC = () => {
           ======================================================== */}
       <section className="gsap-founder-section py-20 sm:py-28 md:py-36 bg-[#FBF9F4] border-t border-black/8 relative overflow-hidden">
         {/* Subtle architectural ambient warmth */}
-        <div 
+        <div
           className="absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_-15%,rgba(138,125,76,0.06),transparent)] pointer-events-none"
-          aria-hidden="true" 
+          aria-hidden="true"
         />
 
         <Container className="relative z-10">
@@ -1795,7 +1786,7 @@ export const About: React.FC = () => {
                   </div>
                   <div className="text-right">
                     <span className="text-[9px] font-mono uppercase tracking-widest text-knowza-dark/50 block">
-                      South India &bull; Est. 2024
+                      South India &bull; Est. 2026
                     </span>
                   </div>
                 </div>
