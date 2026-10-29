@@ -13,12 +13,12 @@
     --knowza-sand: #E3DDC6;
     --knowza-taupe: #8D8978;
     --knowza-white: #FAF9F2;
-    --knowza-canvas: #EDEABF;
+    --knowza-canvas: #F6F4DE;
     --knowza-dark: #25271F;
   }
 
   html {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Tenor Sans', sans-serif;
     overflow-x: hidden;
     width: 100%;
   }
@@ -40,10 +40,10 @@
   }
 
   body {
-    background-color: #EDEABF;
+    background-color: #F6F4DE;
     color: var(--knowza-dark);
     line-height: 1.7;
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Tenor Sans', sans-serif;
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -52,13 +52,18 @@
   }
 
   p, li, label {
+    font-family: 'Tenor Sans', sans-serif;
     font-weight: 500;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Tenor Sans', sans-serif;
     font-weight: 700;
     letter-spacing: -0.01em;
+  }
+
+  button, input, select, textarea {
+    font-family: 'Tenor Sans', sans-serif;
   }
 }
 
@@ -111,7 +116,7 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F4F0D5;
+  background: #F6F4DE;
 }
 ::-webkit-scrollbar-thumb {
   background: #79864B;
@@ -260,7 +265,7 @@
   background-color: #79864B;
 }
 .knowza-btn-liquid-olive:hover {
-  color: #EDEABF !important;
+  color: #F6F4DE !important;
   border-color: #79864B;
 }
 .knowza-btn-liquid-olive:active::before {
@@ -277,7 +282,7 @@
   background-color: #25271F;
 }
 .knowza-btn-liquid-olive-fill:hover {
-  color: #EDEABF !important;
+  color: #F6F4DE !important;
   border-color: #25271F;
 }
 .knowza-btn-liquid-olive-fill:active::before {
@@ -294,7 +299,7 @@
   background-color: #25271F;
 }
 .knowza-btn-liquid-dark:hover {
-  color: #EDEABF !important;
+  color: #F6F4DE !important;
   border-color: #25271F;
 }
 .knowza-btn-liquid-dark:active::before {
@@ -331,7 +336,7 @@
   border-color: #ffffff;
 }
 .knowza-btn-liquid-secondary:active::before {
-  background-color: #EDEABF;
+  background-color: #F6F4DE;
 }
 
 /* ========================================================

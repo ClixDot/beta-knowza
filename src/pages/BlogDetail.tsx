@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, ArrowUpRight, Share2, BookOpen } from 'lucide-react';
@@ -19,7 +19,7 @@ export const BlogDetail: React.FC = () => {
 
   if (!post) {
     return (
-      <div className="min-h-[70vh] flex flex-col items-center justify-center bg-[#EDEABF] px-4 text-center">
+      <div className="min-h-[70vh] flex flex-col items-center justify-center bg-[#F6F4DE] px-4 text-center">
         <span className="text-xs uppercase tracking-[0.25em] text-[#8A7D4C] font-semibold block mb-2">
           SANCTUARY DISPATCH
         </span>
@@ -45,7 +45,7 @@ export const BlogDetail: React.FC = () => {
     .slice(0, 2);
 
   return (
-    <article className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
+    <article className="relative overflow-hidden bg-[#F6F4DE] text-knowza-dark">
       {/* ========================================================
           01 HEADER / META SECTION
           ======================================================== */}
@@ -189,7 +189,7 @@ export const BlogDetail: React.FC = () => {
           04 RELATED STORIES
           ======================================================== */}
       {relatedPosts.length > 0 && (
-        <section className="py-20 bg-[#EDEABF] border-t border-black/5">
+        <section className="py-20 bg-[#F6F4DE] border-t border-black/5">
           <Container>
             <motion.div
               initial={{ opacity: 0, y: 30 }}

@@ -73,7 +73,7 @@ const ScrollPillarCard: React.FC<ScrollPillarCardProps> = ({
 
 const FoundationsSection: React.FC = () => {
   return (
-    <section className="py-20 md:py-28 bg-[#EDEABF] border-t border-black/5 relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-[#F6F4DE] border-t border-black/5 relative overflow-hidden">
       <Container className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -273,11 +273,11 @@ export const Home: React.FC = () => {
 
   // Staggered directional scroll parallax:
   // Line 1 drifts smoothly to the left
-  const line1X = useTransform(heroScrollProgress, [0, 0.8], ['0%', '-24%']);
+  const line1X = useTransform(heroScrollProgress, [0, 0.8], ['0%', '-6%']);
   // Line 2 drifts smoothly to the right
-  const line2X = useTransform(heroScrollProgress, [0, 0.8], ['0%', '24%']);
+  const line2X = useTransform(heroScrollProgress, [0, 0.8], ['0%', '6%']);
   // Line 3 drifts smoothly to the left with varied pace
-  const line3X = useTransform(heroScrollProgress, [0, 0.8], ['0%', '-16%']);
+  const line3X = useTransform(heroScrollProgress, [0, 0.8], ['0%', '-4%']);
 
   const headlineOpacity = useTransform(heroScrollProgress, [0, 0.75], [1, 0.25]);
   const subY = useTransform(heroScrollProgress, [0, 0.5], ['0px', '-35px']);
@@ -335,11 +335,11 @@ export const Home: React.FC = () => {
   const infiniteGalleryCards = [...galleryCards, ...galleryCards];
 
   return (
-    <div className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
+    <div className="relative overflow-hidden bg-[#F6F4DE] text-knowza-dark">
       {/* ========================================================
           01 HERO MONOLITH (INWARD SHRINK ON SCROLL)
           ======================================================== */}
-      <div ref={heroWrapperRef} className="relative h-[100dvh] h-[100vh] sm:h-[112vh] w-full bg-[#EDEABF]">
+      <div ref={heroWrapperRef} className="relative h-[100dvh] h-[100vh] sm:h-[112vh] w-full bg-[#F6F4DE]">
         <div className="sticky top-0 h-[100dvh] h-[100vh] w-full flex items-center justify-center overflow-hidden">
           <motion.section
             style={{
@@ -388,7 +388,7 @@ export const Home: React.FC = () => {
                 >
                   EST. 2026 · EXPERIENTIAL SANCTUARY
                 </motion.span>
-                <h1 className="font-display font-black italic uppercase text-[28px] xs:text-[36px] sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[88px] 2xl:text-[100px] text-[#ECE7D7] tracking-[0.02em] sm:tracking-[0.04em] lg:tracking-[0.05em] leading-[0.92] sm:leading-[0.86] select-none break-words flex flex-col items-center text-center px-1">
+                <h1 className="font-display font-black italic uppercase text-[24px] xs:text-[28px] sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[62px] 2xl:text-[68px] text-[#ECE7D7] tracking-[0.02em] sm:tracking-[0.03em] lg:tracking-[0.04em] leading-[1.02] sm:leading-[0.96] select-none break-words flex flex-col items-center text-center px-4 max-w-5xl mx-auto">
                   <motion.span
                     style={{ x: line1X, opacity: headlineOpacity }}
                     className="inline-block whitespace-nowrap will-change-transform"
@@ -439,7 +439,7 @@ export const Home: React.FC = () => {
           02 ARCHITECTURAL DIALOGUE & LIVING STATS
           Matching Reference Section 2 ("EVERY HOME WE CREATE...")
           ======================================================== */}
-      <section id="brand-statement" className="pt-8 sm:pt-12 md:pt-14 pb-20 md:pb-28 bg-[#EDEABF] relative">
+      <section id="brand-statement" className="pt-8 sm:pt-12 md:pt-14 pb-20 md:pb-28 bg-[#F6F4DE] relative">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: Eyebrow + Big Counters */}
@@ -534,7 +534,7 @@ export const Home: React.FC = () => {
           03 THREE ARCHITECTURAL PILLARS (TRIPTYCH CARDS)
           Matching Reference Section 3 (Private Library, Cinema, Living Room)
           ======================================================== */}
-      <section className="py-20 md:py-28 bg-[#EDEABF] border-t border-black/5 relative">
+      <section className="py-20 md:py-28 bg-[#F6F4DE] border-t border-black/5 relative">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {/* Card 1: Heritage Courtyard */}
@@ -589,22 +589,22 @@ export const Home: React.FC = () => {
         className="relative py-20 sm:py-28 md:py-36 bg-[#79864B] text-white overflow-hidden border-t border-black/10"
       >
         {/* Giant Watermark Repeating WORK Background Typography with Scroll Parallax */}
-        <div className="absolute inset-0 flex flex-col justify-around pointer-events-none select-none overflow-hidden opacity-35 z-0">
+        <div className="absolute inset-0 flex flex-col justify-around pointer-events-none select-none overflow-hidden opacity-30 z-0">
           <motion.div
             style={{ x: bgWorkLine1X }}
-            className="font-display font-black italic tracking-tighter uppercase text-[#566033] text-[18vw] sm:text-[16vw] leading-[0.8] whitespace-nowrap will-change-transform"
+            className="font-display font-black italic tracking-tighter uppercase text-[#566033] text-[11vw] sm:text-[9vw] md:text-[7.5vw] leading-[0.85] whitespace-nowrap will-change-transform"
           >
             WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK
           </motion.div>
           <motion.div
             style={{ x: bgWorkLine2X }}
-            className="font-display font-black italic tracking-tighter uppercase text-[#566033] text-[18vw] sm:text-[16vw] leading-[0.8] whitespace-nowrap will-change-transform"
+            className="font-display font-black italic tracking-tighter uppercase text-[#566033] text-[11vw] sm:text-[9vw] md:text-[7.5vw] leading-[0.85] whitespace-nowrap will-change-transform"
           >
             WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK
           </motion.div>
           <motion.div
             style={{ x: bgWorkLine3X }}
-            className="font-display font-black italic tracking-tighter uppercase text-[#566033] text-[18vw] sm:text-[16vw] leading-[0.8] whitespace-nowrap will-change-transform"
+            className="font-display font-black italic tracking-tighter uppercase text-[#566033] text-[11vw] sm:text-[9vw] md:text-[7.5vw] leading-[0.85] whitespace-nowrap will-change-transform"
           >
             WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK &nbsp;&middot;&nbsp; WORK
           </motion.div>
@@ -648,7 +648,7 @@ export const Home: React.FC = () => {
           07 FEATURED STORY / BLOG
           ======================================================== */}
       {blogPosts && blogPosts.length > 0 && (
-        <section className="py-24 md:py-32 bg-[#EDEABF] border-t border-black/5 overflow-hidden">
+        <section className="py-24 md:py-32 bg-[#F6F4DE] border-t border-black/5 overflow-hidden">
           <Container>
             <motion.div
               initial={{ opacity: 0, y: 30 }}

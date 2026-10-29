@@ -45,22 +45,22 @@ export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative pt-28 sm:pt-36 md:pt-44 pb-12 sm:pb-16 md:pb-20 overflow-hidden border-b border-black/5 bg-[#EDEABF] text-knowza-dark ${className}`}
+      className={`relative pt-28 sm:pt-36 md:pt-44 pb-12 sm:pb-16 md:pb-20 overflow-hidden border-b border-black/5 bg-[#F6F4DE] text-knowza-dark ${className}`}
     >
       {/* ========================================================
           REPEATING SCROLL PARALLAX WATERMARK (EXACTLY 2 LINES)
           ======================================================== */}
       {repeatWord && (
-        <div className="absolute inset-0 flex flex-col justify-between py-6 sm:py-10 pointer-events-none select-none overflow-hidden opacity-[0.065] z-0">
+        <div className="absolute inset-0 flex flex-col justify-around py-4 sm:py-8 pointer-events-none select-none overflow-hidden opacity-[0.05] z-0">
           <motion.div
             style={{ x: line1X }}
-            className="font-display font-black italic tracking-tighter uppercase text-knowza-dark text-[18vw] sm:text-[16vw] leading-[0.8] whitespace-nowrap will-change-transform"
+            className="font-display font-black italic tracking-tighter uppercase text-knowza-dark text-[11vw] sm:text-[9vw] md:text-[7.5vw] leading-[0.85] whitespace-nowrap will-change-transform"
           >
             {repeatString}
           </motion.div>
           <motion.div
             style={{ x: line2X }}
-            className="font-display font-black italic tracking-tighter uppercase text-knowza-dark text-[18vw] sm:text-[16vw] leading-[0.8] whitespace-nowrap will-change-transform"
+            className="font-display font-black italic tracking-tighter uppercase text-knowza-dark text-[11vw] sm:text-[9vw] md:text-[7.5vw] leading-[0.85] whitespace-nowrap will-change-transform"
           >
             {repeatString}
           </motion.div>
@@ -95,7 +95,7 @@ export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-black italic uppercase text-[44px] xs:text-[54px] sm:text-7xl md:text-8xl lg:text-[104px] xl:text-[116px] tracking-tight leading-[0.92] sm:leading-[0.88] select-none break-words flex flex-col items-center text-center px-2"
+            className="font-display font-black italic uppercase text-[30px] xs:text-[36px] sm:text-5xl md:text-6xl lg:text-[70px] xl:text-[78px] tracking-tight leading-[0.98] sm:leading-[0.92] select-none break-words flex flex-col items-center text-center px-4 max-w-5xl mx-auto"
           >
             <span className="text-knowza-dark block">
               {titleLine1}

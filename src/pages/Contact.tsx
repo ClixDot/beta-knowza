@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Calendar, ArrowUpRight, CheckCircle2, Clock, Phone, Sparkles } from 'lucide-react';
 import { Container } from '../components/Container';
@@ -85,7 +85,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
+    <div className="relative overflow-hidden bg-[#F6F4DE] text-knowza-dark">
       {/* ========================================================
           01 ARCHITECTURAL CONCIERGE HERO
           ======================================================== */}
@@ -287,7 +287,7 @@ export const Contact: React.FC = () => {
                             className={`px-4 py-2 rounded-full text-xs font-sans transition-all duration-300 border ${
                               isSelected
                                 ? 'bg-knowza-deep text-white border-knowza-deep shadow-sm font-medium'
-                                : 'bg-[#EDEABF] text-knowza-dark/70 border-black/10 hover:border-black/30'
+                                : 'bg-[#F6F4DE] text-knowza-dark/70 border-black/10 hover:border-black/30'
                             }`}
                           >
                             {purpose}
@@ -311,7 +311,7 @@ export const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Maya Sundaram"
-                      className={`w-full px-5 py-3.5 rounded-xl bg-[#EDEABF]/40 border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors ${
+                      className={`w-full px-5 py-3.5 rounded-xl bg-[#F6F4DE]/40 border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors ${
                         errors.name
                           ? 'border-red-500 focus:border-red-600'
                           : 'border-black/10 focus:border-knowza-olive'
@@ -337,7 +337,7 @@ export const Contact: React.FC = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="maya@example.com"
-                        className={`w-full px-5 py-3.5 rounded-xl bg-[#EDEABF]/40 border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors ${
+                        className={`w-full px-5 py-3.5 rounded-xl bg-[#F6F4DE]/40 border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors ${
                           errors.email
                             ? 'border-red-500 focus:border-red-600'
                             : 'border-black/10 focus:border-knowza-olive'
@@ -361,7 +361,7 @@ export const Contact: React.FC = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 (0) 00000 00000"
-                        className="w-full px-5 py-3.5 rounded-xl bg-[#EDEABF]/40 border border-black/10 text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none focus:border-knowza-olive transition-colors"
+                        className="w-full px-5 py-3.5 rounded-xl bg-[#F6F4DE]/40 border border-black/10 text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none focus:border-knowza-olive transition-colors"
                       />
                     </div>
                   </div>
@@ -380,7 +380,7 @@ export const Contact: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Share your intended season, number of travelers, retreat goals, or questions..."
-                      className={`w-full px-5 py-3.5 rounded-xl bg-[#EDEABF]/40 border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors resize-y ${
+                      className={`w-full px-5 py-3.5 rounded-xl bg-[#F6F4DE]/40 border text-sm font-sans text-knowza-dark placeholder-knowza-dark/40 focus:outline-none transition-colors resize-y ${
                         errors.message
                           ? 'border-red-500 focus:border-red-600'
                           : 'border-black/10 focus:border-knowza-olive'
@@ -412,7 +412,7 @@ export const Contact: React.FC = () => {
       {/* ========================================================
           03 INSTAGRAM & VISUAL CONNECTIONS
           ======================================================== */}
-      <section className="py-20 bg-[#EDEABF] border-t border-black/5">
+      <section className="py-20 bg-[#F6F4DE] border-t border-black/5">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}

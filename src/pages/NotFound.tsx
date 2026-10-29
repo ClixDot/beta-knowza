@@ -6,7 +6,7 @@ import { SectionLabel } from '../components/SectionLabel';
 
 export const NotFound: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#EDEABF] text-knowza-dark py-32 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-[#F6F4DE] text-knowza-dark py-32 relative overflow-hidden">
       {/* Background aesthetic glow */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#8A7D4C]/10 blur-[120px] pointer-events-none" 

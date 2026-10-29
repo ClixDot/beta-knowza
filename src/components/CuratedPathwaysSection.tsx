@@ -62,7 +62,7 @@ export const CuratedPathwaysSection: React.FC<CuratedPathwaysSectionProps> = ({
   return (
     <section
       id={id}
-      className={`py-20 sm:py-28 md:py-36 bg-[#EDEABF] text-knowza-dark border-t border-b border-black/5 relative overflow-hidden ${className}`}
+      className={`py-20 sm:py-28 md:py-36 bg-[#F6F4DE] text-knowza-dark border-t border-b border-black/5 relative overflow-hidden ${className}`}
     >
       <Container className="relative z-10">
         {/* Section Header */}

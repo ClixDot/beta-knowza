@@ -67,7 +67,7 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
   return (
     <section
       id={id}
-      className={`relative py-20 sm:py-28 md:py-36 bg-[#EDEABF] text-knowza-dark overflow-hidden border-t border-black/5 ${className}`}
+      className={`relative py-20 sm:py-28 md:py-36 bg-[#F6F4DE] text-knowza-dark overflow-hidden border-t border-black/5 ${className}`}
     >
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">

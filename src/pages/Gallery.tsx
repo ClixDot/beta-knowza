@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+﻿import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Maximize2, MapPin } from 'lucide-react';
 import { Container } from '../components/Container';
@@ -31,7 +31,7 @@ export const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
+    <div className="relative overflow-hidden bg-[#F6F4DE] text-knowza-dark">
       {/* ========================================================
           01 ARCHITECTURAL GALLERY HERO
           ======================================================== */}
@@ -44,7 +44,7 @@ export const Gallery: React.FC = () => {
       {/* ========================================================
           02 PILL CATEGORY FILTER TABS
           ======================================================== */}
-      <section className="sticky top-[68px] md:top-[80px] z-30 bg-[#EDEABF]/90 backdrop-blur-md border-b border-black/5 py-3 sm:py-4">
+      <section className="sticky top-[68px] md:top-[80px] z-30 bg-[#F6F4DE]/90 backdrop-blur-md border-b border-black/5 py-3 sm:py-4">
         <Container>
           <div className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 sm:gap-2.5 py-1 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth">
             {CATEGORIES.map((cat) => {
@@ -62,7 +62,7 @@ export const Gallery: React.FC = () => {
                   className={`relative h-9 sm:h-9.5 px-4 sm:px-5 rounded-full text-xs uppercase tracking-widest-editorial font-medium transition-all duration-300 whitespace-nowrap focus:outline-none inline-flex items-center justify-center gap-2 shrink-0 select-none shadow-sm ${
                     isActive
                       ? 'bg-knowza-deep text-white ring-1 ring-knowza-deep shadow-md'
-                      : 'bg-[#EDEABF] text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.04] border border-black/10'
+                      : 'bg-[#F6F4DE] text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.04] border border-black/10'
                   }`}
                   aria-pressed={isActive}
                 >
@@ -145,7 +145,7 @@ export const Gallery: React.FC = () => {
                     {/* Bottom Editorial Caption */}
                     <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
                       {item.location && (
-                        <div className="flex items-center gap-1.5 text-xs text-[#EDEABF]/80 font-sans">
+                        <div className="flex items-center gap-1.5 text-xs text-[#F6F4DE]/80 font-sans">
                           <MapPin className="w-3.5 h-3.5 text-[#8A7D4C]" />
                           <span>{item.location}</span>
                         </div>

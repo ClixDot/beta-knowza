@@ -107,7 +107,7 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#EDEABF] text-knowza-dark font-sans selection:bg-knowza-olive selection:text-white">
+    <div className="flex flex-col min-h-screen bg-[#F6F4DE] text-knowza-dark font-sans selection:bg-knowza-olive selection:text-white">
       <LoadingScreen isInitialLoading={isInitialLoading} />
       <ScrollToTop />
       <Navbar isInitialLoading={isInitialLoading} />

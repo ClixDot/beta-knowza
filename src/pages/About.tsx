@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
@@ -759,7 +759,7 @@ export const About: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden bg-[#EDEABF] text-knowza-dark">
+    <div ref={containerRef} className="relative overflow-hidden bg-[#F6F4DE] text-knowza-dark">
       {/* ========================================================
           01 ARCHITECTURAL EDITORIAL HERO
           ======================================================== */}
@@ -772,7 +772,7 @@ export const About: React.FC = () => {
       />
 
       {/* Sanctuary Banner Section */}
-      <section className="pb-12 sm:pb-16 md:pb-24 border-b border-black/5 bg-[#EDEABF]">
+      <section className="pb-12 sm:pb-16 md:pb-24 border-b border-black/5 bg-[#F6F4DE]">
         <Container>
 
           {/* Cinematic Wide Sanctuary Banner Frame with GSAP Parallax & Smooth Expand */}
@@ -823,7 +823,7 @@ export const About: React.FC = () => {
       {/* ========================================================
           02.1 GUIDING PURPOSE: VISION & MISSION (OUR NORTH STAR)
           ======================================================== */}
-      <section className="py-14 sm:py-24 md:py-36 bg-[#EDEABF] border-b border-black/5 relative overflow-hidden">
+      <section className="py-14 sm:py-24 md:py-36 bg-[#F6F4DE] border-b border-black/5 relative overflow-hidden">
         {/* Subtle Background Watermark */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[70px] xs:text-[100px] sm:text-[180px] md:text-[240px] font-serif font-bold text-black/[0.025] uppercase tracking-widest select-none pointer-events-none whitespace-nowrap">
           NORTH STAR
@@ -980,7 +980,7 @@ export const About: React.FC = () => {
                           <div className="space-y-3 sm:space-y-4 relative z-10">
                             {/* Card Header with Icon & Category */}
                             <div className="flex items-center justify-between">
-                              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#EDEABF] text-[#79864B] flex items-center justify-center group-hover/card:bg-[#79864B] group-hover/card:text-white transition-all duration-300 shadow-sm shrink-0">
+                              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#F6F4DE] text-[#79864B] flex items-center justify-center group-hover/card:bg-[#79864B] group-hover/card:text-white transition-all duration-300 shadow-sm shrink-0">
                                 <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover/card:scale-110" />
                               </div>
                               <span className="text-[9px] xs:text-[10px] uppercase tracking-wider sm:tracking-widest text-[#8A7D4C] font-semibold bg-[#FAF9F2] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-black/5">
@@ -1109,7 +1109,7 @@ export const About: React.FC = () => {
                           <div className="space-y-3 sm:space-y-4 relative z-10">
                             {/* Card Header with Icon & Category */}
                             <div className="flex items-center justify-between">
-                              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#EDEABF] text-[#79864B] flex items-center justify-center group-hover/card:bg-[#79864B] group-hover/card:text-white transition-all duration-300 shadow-sm shrink-0">
+                              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#F6F4DE] text-[#79864B] flex items-center justify-center group-hover/card:bg-[#79864B] group-hover/card:text-white transition-all duration-300 shadow-sm shrink-0">
                                 <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover/card:scale-110" />
                               </div>
                               <span className="text-[9px] xs:text-[10px] uppercase tracking-wider sm:tracking-widest text-[#79864B] font-semibold bg-[#FAF9F2] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-black/5">
@@ -1238,7 +1238,7 @@ export const About: React.FC = () => {
                           <div className="space-y-3 sm:space-y-4 relative z-10">
                             {/* Card Header with Icon & Category */}
                             <div className="flex items-center justify-between">
-                              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#EDEABF] text-[#556038] flex items-center justify-center group-hover/card:bg-[#556038] group-hover/card:text-white transition-all duration-300 shadow-sm shrink-0">
+                              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#F6F4DE] text-[#556038] flex items-center justify-center group-hover/card:bg-[#556038] group-hover/card:text-white transition-all duration-300 shadow-sm shrink-0">
                                 <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover/card:scale-110" />
                               </div>
                               <span className="text-[9px] xs:text-[10px] uppercase tracking-wider sm:tracking-widest text-[#556038] font-semibold bg-[#FAF9F2] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-black/5">
@@ -1279,7 +1279,7 @@ export const About: React.FC = () => {
       {/* ========================================================
           02.2 GROWTH & EXPANSION ROADMAP (ARCHITECTURAL VIEWFINDER FOCUS)
           ======================================================== */}
-      <section className="py-14 sm:py-24 md:py-36 bg-[#EDEABF] border-b border-black/5 relative overflow-hidden">
+      <section className="py-14 sm:py-24 md:py-36 bg-[#F6F4DE] border-b border-black/5 relative overflow-hidden">
         {/* Subtle Background Watermark */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[70px] xs:text-[100px] sm:text-[180px] md:text-[240px] font-serif font-bold text-black/[0.025] uppercase tracking-widest select-none pointer-events-none whitespace-nowrap">
           ROADMAP
@@ -1472,7 +1472,7 @@ export const About: React.FC = () => {
 
                     {/* Card Footer Status */}
                     <div className="pt-2.5 sm:pt-3 border-t border-black/8 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 text-[9px] xs:text-[10px] font-sans uppercase tracking-wider sm:tracking-widest text-[#79864B] font-semibold bg-[#EDEABF]/80 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
+                      <span className="inline-flex items-center gap-1.5 text-[9px] xs:text-[10px] font-sans uppercase tracking-wider sm:tracking-widest text-[#79864B] font-semibold bg-[#F6F4DE]/80 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#79864B]" />
                         {stage.phaseStatus}
                       </span>
@@ -1492,7 +1492,7 @@ export const About: React.FC = () => {
       {/* ========================================================
           02.3 ARCHITECTURAL DIALOGUE & LIVING STATS
           ======================================================== */}
-      <section className="py-14 sm:py-24 md:py-36 bg-[#EDEABF] border-b border-black/5 relative">
+      <section className="py-14 sm:py-24 md:py-36 bg-[#F6F4DE] border-b border-black/5 relative">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
             {/* Left Column: Eyebrow + Counters with GSAP Scrub Lines */}
@@ -1598,7 +1598,7 @@ export const About: React.FC = () => {
       {/* ========================================================
           03 THE THREE LIVING PILLARS (SCULPTURAL CARDS WITH GSAP PARALLAX)
           ======================================================== */}
-      <section className="py-12 sm:py-16 md:py-20 bg-[#EDEABF] border-b border-black/5 relative">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#F6F4DE] border-b border-black/5 relative">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
             <SectionLabel label="PILLARS OF EXPERIENCE" color="olive" alignment="center" />
@@ -1693,7 +1693,7 @@ export const About: React.FC = () => {
       {/* ========================================================
           05 EDITORIAL CRAFT & ECOLOGICAL HARMONY (GSAP DUAL OPPOSING PARALLAX)
           ======================================================== */}
-      <section className="py-12 sm:py-16 md:py-20 bg-[#EDEABF] border-t border-black/5 relative">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#F6F4DE] border-t border-black/5 relative">
         <Container>
           <div className="gsap-diptych-container grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-center">
             {/* Photographic Diptych with GSAP Opposing Parallax */}
@@ -1903,7 +1903,7 @@ export const About: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsCharterOpen(true)}
-                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#EDEABF]/80 hover:bg-[#EDEABF] border border-[#8A7D4C]/35 hover:border-[#8A7D4C]/60 shadow-xs text-knowza-dark transition-all duration-300 group self-start sm:self-auto cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#79864B]/40"
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#F6F4DE]/80 hover:bg-[#F6F4DE] border border-[#8A7D4C]/35 hover:border-[#8A7D4C]/60 shadow-xs text-knowza-dark transition-all duration-300 group self-start sm:self-auto cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#79864B]/40"
                   aria-haspopup="dialog"
                   aria-expanded={isCharterOpen}
                 >
@@ -2014,7 +2014,7 @@ export const About: React.FC = () => {
                   </span>
                 </div>
                 <div className="text-right">
-                  <span className="inline-block px-3 py-1 rounded-md bg-[#EDEABF] text-[9px] font-mono uppercase tracking-widest text-[#79864B] font-semibold border border-[#79864B]/20">
+                  <span className="inline-block px-3 py-1 rounded-md bg-[#F6F4DE] text-[9px] font-mono uppercase tracking-widest text-[#79864B] font-semibold border border-[#79864B]/20">
                     OFFICIAL CHARTER RECORD
                   </span>
                 </div>
