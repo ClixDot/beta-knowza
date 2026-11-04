@@ -4,6 +4,7 @@ import { Btn, EmptyState, Modal, Skeleton, useFeedback } from '../components/ui'
 import { IMAGE_TYPES, VIDEO_TYPES, listMedia, probeImageUrl, subscribeMedia, uploadFiles } from '../../cms/services/media';
 import { resolveMediaString, useCmsState } from '../../cms/services/cmsStore';
 import type { MediaItem } from '../../cms/types';
+import { thumbUrl } from '../../cms/utils';
 
 export function useMediaLibrary() {
   const [items, setItems] = useState<MediaItem[] | null>(null);
@@ -26,6 +27,7 @@ export function useMediaLibrary() {
 export const MediaThumb: React.FC<{ item: MediaItem; className?: string }> = ({ item, className = '' }) => {
   useCmsState(); // Re-render when an uploaded blob's URL becomes available.
   const src = resolveMediaString(item.ref);
+  const [settledSrc, setSettledSrc] = useState('');
   if (item.kind === 'video') {
     return (
       <div className={`relative bg-adm-deep ${className}`}>
@@ -34,7 +36,17 @@ export const MediaThumb: React.FC<{ item: MediaItem; className?: string }> = ({ 
       </div>
     );
   }
-  return <img src={src} alt={item.alt || item.name} loading="lazy" className={`object-cover bg-adm-panel ${className}`} />;
+  return (
+    <img
+      src={thumbUrl(src, 360)}
+      alt={item.alt || item.name}
+      loading="lazy"
+      decoding="async"
+      onLoad={() => setSettledSrc(src)}
+      onError={() => setSettledSrc(src)}
+      className={`object-cover ${settledSrc === src ? 'bg-adm-panel' : 'adm-skeleton'} ${className}`}
+    />
+  );
 };
 
 /** Asks for an image address and only accepts it once it has actually loaded as an image. */

@@ -4,6 +4,12 @@ import type React from 'react';
 export const MEDIA_PREFIX = 'media:';
 export const BLANK_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
 
+const CLOUDINARY_ORIGINAL = /^(https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\/)(v\d+\/)/;
+
+/** A resized, modern-format copy of a Cloudinary image. Any other address is returned unchanged. */
+export const thumbUrl = (src: string, width: number) =>
+  src.replace(CLOUDINARY_ORIGINAL, `$1f_auto,q_auto,c_limit,w_${width}/$2`);
+
 export const uid = (prefix = 'id') =>
   `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 

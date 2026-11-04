@@ -23,6 +23,9 @@ export async function getDb(): Promise<Db> {
     indexesReady = Promise.all([
       db.collection('admin_users').createIndex({ email: 1 }, { unique: true }),
       db.collection('sessions').createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
+      // Every signed-in request looks its session up by this hash.
+      db.collection('sessions').createIndex({ tokenHash: 1 }),
+      db.collection('media').createIndex({ id: 1 }),
       db.collection('rate_limits').createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
       db.collection('revisions').createIndex({ createdAt: -1 }),
       db.collection('records').createIndex({ kind: 1, createdAt: -1 }),

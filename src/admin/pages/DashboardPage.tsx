@@ -6,7 +6,7 @@ import { ActivityBars, StatusDonut } from '../dashboard/DashboardCharts';
 import { MediaThumb, useMediaLibrary } from '../media/MediaPicker';
 import { useSession } from '../../cms/services/auth';
 import { listActivity, subscribeActivity } from '../../cms/services/activity';
-import { resolveMediaString, useCmsState } from '../../cms/services/cmsStore';
+import { resolveThumb, useCmsState } from '../../cms/services/cmsStore';
 import { computeMetrics } from '../../cms/services/insights';
 import { listEnquiries, subscribeSubmissions } from '../../cms/services/submissions';
 import type { ActivityRecord, EnquiryRecord, PageId } from '../../cms/types';
@@ -58,13 +58,13 @@ export const DashboardPage: React.FC = () => {
   const unread = enquiries?.filter((e) => !e.read).length ?? 0;
 
   const pages = Object.values(draft.pages);
-  const thumbFor = (id: PageId) => {
+  const thumbFor = (id: PageId, width: number) => {
     const page = draft.pages[id];
     const section = page.sections.find((s) => s.id === PAGE_THUMBS[id]);
     const src = section?.content?.image?.src ?? section?.content?.vignette?.image?.src;
-    if (src) return resolveMediaString(src);
-    if (id === 'gallery') return resolveMediaString(draft.gallery.items[0]?.image ?? '');
-    return resolveMediaString(draft.blog.posts[0]?.coverImage ?? '');
+    if (src) return resolveThumb(src, width);
+    if (id === 'gallery') return resolveThumb(draft.gallery.items[0]?.image ?? '', width);
+    return resolveThumb(draft.blog.posts[0]?.coverImage ?? '', width);
   };
 
   const uploads = media?.filter((m) => m.origin === 'upload') ?? [];
@@ -83,7 +83,7 @@ export const DashboardPage: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-3">
         <Link to="/admin/settings" aria-label={`Your account: ${session?.name}`} className="adm-lift group relative block min-h-[260px] rounded-[24px] overflow-hidden bg-adm-deep xl:col-span-3 border border-white/30 shadow-none">
-          <img src={thumbFor('home')} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={thumbFor('home', 1200)} alt="" className="absolute inset-0 w-full h-full object-cover" />
           <span className="absolute inset-0 bg-gradient-to-t from-adm-deeper/85 via-adm-deeper/10 to-transparent" />
           <span className="absolute right-3 top-3 capitalize text-[12.5px] text-white px-3 py-1.5 rounded-full border border-white/50 bg-adm-deeper/70 backdrop-blur-md">{session?.role}</span>
           <span className="absolute left-4 right-4 bottom-4 text-white">
@@ -153,7 +153,7 @@ export const DashboardPage: React.FC = () => {
             {pages.map((page) => (
               <li key={page.id}>
                 <Link to={`/admin/pages/${page.id}`} className="flex items-center gap-3 p-1.5 rounded-[14px] hover:bg-adm-deep/[0.05] transition-colors">
-                  <img src={thumbFor(page.id)} alt="" className="w-10 h-10 rounded-full object-cover bg-adm-panel shrink-0" />
+                  <img src={thumbFor(page.id, 96)} alt="" className="w-10 h-10 rounded-full object-cover bg-adm-panel shrink-0" />
                   <span className="flex-1 min-w-0">
                     <span className="block text-[13.5px] truncate">{page.title}</span>
                     <span className="block text-[11.5px] text-adm-mute truncate">{page.sections.length} sections</span>

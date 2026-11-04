@@ -6,7 +6,7 @@ import { FieldShell, FormRenderer, ImageInput, TextInput } from '../editors/Form
 import { PublishBar } from '../components/PublishBar';
 import { ImageUrlForm } from '../media/MediaPicker';
 import { canEdit, canPublish, useSession } from '../../cms/services/auth';
-import { publishGallery, publishPage, resolveMediaString, updateDraft, updatePage, useCmsState } from '../../cms/services/cmsStore';
+import { publishGallery, publishPage, resolveMediaString, resolveThumb, updateDraft, updatePage, useCmsState } from '../../cms/services/cmsStore';
 import { IMAGE_TYPES, nameFromUrl, uploadFiles } from '../../cms/services/media';
 import { SECTION_SCHEMAS } from '../../cms/schemas/sections';
 import { f } from '../../cms/schemas/fields';
@@ -216,8 +216,9 @@ export const GalleryEditor: React.FC = () => {
                 >
                   <div className="relative">
                     <img
-                      src={resolveMediaString(item.image)}
+                      src={resolveThumb(item.image, 480)}
                       alt={item.alt}
+                      loading="lazy"
                       draggable={false}
                       className={`w-full object-cover bg-adm-panel ${view === 'grid' ? 'aspect-[4/3]' : item.aspectRatio === 'portrait' ? 'aspect-[3/4]' : item.aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/3]'} ${item.enabled ? '' : 'opacity-50'}`}
                     />

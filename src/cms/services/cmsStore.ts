@@ -4,7 +4,7 @@ import { MongoCMSStorageAdapter } from '../adapters/MongoCMSStorageAdapter';
 import type { CMSStorageAdapter } from '../adapters/CMSStorageAdapter';
 import { createSeedDocument, isValidDocument, migrateDocument } from '../migration';
 import type { CMSDocument, PageId, RevisionRecord, Stage } from '../types';
-import { BLANK_IMAGE, clone, collectStrings, isMediaRef, mapStrings, mediaIdFromRef, uid } from '../utils';
+import { BLANK_IMAGE, clone, collectStrings, isMediaRef, mapStrings, mediaIdFromRef, thumbUrl, uid } from '../utils';
 import cloudinaryMapping from '../cloudinaryMapping.json';
 import { logActivity } from './activity';
 import { getCurrentSession, isLocalBackend, registerAuthApi, restoreSession } from './auth';
@@ -130,6 +130,18 @@ export function registerMediaBlob(id: string, blob: Blob) {
   setState({ mediaUrls: { ...state.mediaUrls, [id]: URL.createObjectURL(blob) }, mediaVersion: state.mediaVersion + 1 });
 }
 
+/** The media list carries hosted URLs, which covers uploads no page uses yet. */
+export function registerMediaUrls(items: { id: string; url?: string }[]) {
+  const fresh = items.filter((item) => item.url && !state.mediaUrls[item.id]);
+  if (!fresh.length) return;
+  const next = { ...state.mediaUrls };
+  fresh.forEach((item) => {
+    next[item.id] = item.url!;
+    missingMedia.delete(item.id);
+  });
+  setState({ mediaUrls: next, mediaVersion: state.mediaVersion + 1 });
+}
+
 export function forgetMedia(id: string) {
   const previous = state.mediaUrls[id];
   if (previous) URL.revokeObjectURL(previous);
@@ -144,6 +156,8 @@ export const resolveMediaString = (value: string) => {
   if (isMediaRef(value)) return state.mediaUrls[mediaIdFromRef(value)] ?? BLANK_IMAGE;
   return cloudMap[value] ?? value;
 };
+
+export const resolveThumb = (value: string, width: number) => thumbUrl(resolveMediaString(value), width);
 
 const resolveCache = new Map<CMSDocument, { version: number; resolved: CMSDocument }>();
 

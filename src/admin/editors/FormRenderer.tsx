@@ -6,7 +6,7 @@ import { Btn, Chip, IconBtn, Modal, Select, Toggle, useFeedback } from '../compo
 import { ImageUrlForm, MediaPicker } from '../media/MediaPicker';
 import type { Field } from '../../cms/schemas/fields';
 import { canEdit, useSession } from '../../cms/services/auth';
-import { resolveMediaString, useCmsState } from '../../cms/services/cmsStore';
+import { resolveMediaString, resolveThumb, useCmsState } from '../../cms/services/cmsStore';
 import { IMAGE_TYPES, uploadFiles } from '../../cms/services/media';
 import type { ButtonValue, ImageValue, VideoValue } from '../../cms/types';
 import { clone, isValidLink, makeButton, uid } from '../../cms/utils';
@@ -111,7 +111,7 @@ export const ImageInput: React.FC<{ label: string; value: ImageValue; onChange: 
         <div className="adm-imagefield-body">
           <div className="adm-imagefield-preview">
             {image.src ? (
-              <img src={src} alt="" className="w-full h-full" style={{ objectFit: image.objectFit || 'cover', objectPosition: image.objectPosition }} />
+              <img src={resolveThumb(image.src, 640)} alt="" loading="lazy" className="w-full h-full" style={{ objectFit: image.objectFit || 'cover', objectPosition: image.objectPosition }} />
             ) : (
               <span className="flex flex-col items-center gap-1 text-center text-[12px] text-adm-mute px-2">
                 <ImageIcon className="w-5 h-5" />

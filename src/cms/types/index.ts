@@ -277,6 +277,8 @@ export interface MediaItem {
   category: string;
   createdAt: string;
   hidden?: boolean;
+  /** Hosted address of an upload, sent by the server. Never saved back from the browser. */
+  url?: string;
 }
 
 export type RecordKind = 'enquiry' | 'subscriber' | 'activity';

@@ -32,7 +32,12 @@ export async function saveSubscriber(email: string) {
   }
 }
 
-export const listEnquiries = () => adapter.listRecords<EnquiryRecord>('enquiry');
+// The header and the dashboard ask at the same moment, so they share one request.
+let enquiriesLoading: Promise<EnquiryRecord[]> | null = null;
+export const listEnquiries = () =>
+  (enquiriesLoading ??= adapter.listRecords<EnquiryRecord>('enquiry').finally(() => {
+    enquiriesLoading = null;
+  }));
 export const listSubscribers = () => adapter.listRecords<SubscriberRecord>('subscriber');
 
 export async function setEnquiryRead(record: EnquiryRecord, read: boolean) {

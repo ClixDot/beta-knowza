@@ -2,7 +2,7 @@ import { ASSET_MANIFEST } from '../migration/assetManifest';
 import type { CMSDocument, MediaItem } from '../types';
 import { MEDIA_PREFIX, collectStrings, mapStrings, uid } from '../utils';
 import { logActivity } from './activity';
-import { adapter, forgetMedia, getCmsState, registerMediaBlob, updateDraft } from './cmsStore';
+import { adapter, forgetMedia, getCmsState, registerMediaBlob, registerMediaUrls, updateDraft } from './cmsStore';
 
 export const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif'];
 export const VIDEO_TYPES = ['video/mp4', 'video/webm'];
@@ -38,6 +38,7 @@ const bundledDefaults = (): MediaItem[] =>
 /** Bundled /public images merged with uploads and any saved metadata overrides. */
 export async function listMedia(includeHidden = false): Promise<MediaItem[]> {
   const stored = await adapter.listMedia();
+  registerMediaUrls(stored);
   const overrides = new Map(stored.map((item) => [item.id, item]));
   const bundled = bundledDefaults().map((item) => overrides.get(item.id) ?? item);
   const uploads = stored.filter((item) => item.origin === 'upload').sort((a, b) => b.createdAt.localeCompare(a.createdAt));

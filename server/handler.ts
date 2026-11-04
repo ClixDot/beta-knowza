@@ -286,7 +286,7 @@ async function route(req: IncomingMessage, res: ServerResponse, method: string, 
   if (area === 'media') {
     if (method === 'GET' && !second) {
       requireRole(user, 'viewer');
-      return (await media.find({}, { projection: { _id: 0, url: 0, publicId: 0, resourceType: 0 } }).toArray());
+      return (await media.find({}, { projection: { _id: 0, publicId: 0, resourceType: 0 } }).toArray());
     }
     if (second === 'sign' && method === 'POST') {
       requireRole(user, 'editor');
