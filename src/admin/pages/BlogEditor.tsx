@@ -9,7 +9,7 @@ import { SaveIndicator } from '../components/PublishBar';
 import { isPostLive } from '../../cms/hooks/useSiteContent';
 import { canEdit, canPublish, useSession } from '../../cms/services/auth';
 import { logActivity } from '../../cms/services/activity';
-import { flushDraft, publishBlogCategories, publishPost, removeLivePost, resolveMediaString, saveDraft, updateDraft, useCmsState } from '../../cms/services/cmsStore';
+import { flushDraft, publishBlogCategories, publishPost, removeLivePost, resolveThumb, saveDraft, updateDraft, useCmsState } from '../../cms/services/cmsStore';
 import type { ArticleBlock, BlogCategoryDoc, BlogPostDoc } from '../../cms/types';
 import { clone, slugify, uid } from '../../cms/utils';
 import { f } from '../../cms/schemas/fields';
@@ -164,7 +164,7 @@ const BlogList: React.FC = () => {
                   const changed = post.status !== 'draft' && JSON.stringify(post) !== JSON.stringify(published.blog.posts.find((p) => p.id === post.id));
                   return (
                     <li key={post.id} className="flex items-center gap-3 p-3 sm:px-4 first:rounded-t-[24px] last:rounded-b-[24px] hover:bg-adm-deep/[0.05] transition-colors">
-                      <img src={resolveMediaString(post.coverImage)} alt="" className="hidden xs:block w-16 h-12 rounded-[12px] object-cover bg-adm-panel shrink-0" />
+                      <img src={resolveThumb(post.coverImage, 160)} alt="" loading="lazy" className="hidden xs:block w-16 h-12 rounded-[12px] object-cover bg-adm-panel shrink-0" />
                       <Link to={`/admin/blog/${post.id}`} className="flex-1 min-w-0 group">
                         <span className="block text-[14px] truncate group-hover:underline underline-offset-2">{post.title}</span>
                         <span className="flex flex-wrap items-center gap-1.5 mt-1 text-[12px] text-adm-mute">
