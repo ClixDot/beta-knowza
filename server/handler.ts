@@ -168,23 +168,27 @@ async function route(req: IncomingMessage, res: ServerResponse, method: string, 
     const email = text(body.email, 200).toLowerCase();
     const password = typeof body.password === 'string' ? body.password.slice(0, 200) : '';
     const key = `login:${sha256(`${email}|${clientIp(req)}`)}`;
-    const limited = await db.collection<any>('rate_limits').findOne({ _id: key, expiresAt: { $gt: new Date() }, count: { $gte: LOGIN_MAX_FAILURES } });
+    const [limited, user] = await Promise.all([
+      db.collection<any>('rate_limits').findOne({ _id: key, expiresAt: { $gt: new Date() }, count: { $gte: LOGIN_MAX_FAILURES } }),
+      db.collection('admin_users').findOne({ email, disabled: { $ne: true } }),
+    ]);
     if (limited) throw new HttpError(429, 'Too many failed attempts. Try again in 15 minutes.');
-    const user = await db.collection('admin_users').findOne({ email, disabled: { $ne: true } });
     // Always run a comparison so response time does not reveal which emails exist.
     const ok = await bcrypt.compare(password, user?.passwordHash ?? '$2a$12$C6UzMDM.H6dfI/f/IKcEeO7ZCgJqRgoHvmWc5nxH8p8c1m4Hg0G9a');
     if (!user || !ok) {
       await hitRateLimit(db, key, LOGIN_MAX_FAILURES, LOGIN_WINDOW_MS);
       throw new HttpError(401, 'That email or password is not correct.');
     }
-    await db.collection('rate_limits').deleteOne({ _id: key as any });
     const token = randomBytes(32).toString('hex');
-    await db.collection('sessions').insertOne({
-      tokenHash: sha256(token),
-      email,
-      createdAt: new Date(),
-      expiresAt: new Date(Date.now() + SESSION_DAYS * 86400000),
-    });
+    await Promise.all([
+      db.collection('rate_limits').deleteOne({ _id: key as any }),
+      db.collection('sessions').insertOne({
+        tokenHash: sha256(token),
+        email,
+        createdAt: new Date(),
+        expiresAt: new Date(Date.now() + SESSION_DAYS * 86400000),
+      }),
+    ]);
     res.setHeader('Set-Cookie', sessionCookie(req, token, SESSION_DAYS * 86400));
     return { name: user.name, email: user.email, role: user.role };
   }

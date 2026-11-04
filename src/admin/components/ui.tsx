@@ -25,7 +25,7 @@ export const Btn: React.FC<BtnProps> = ({ variant = 'secondary', size = 'md', ic
     type={type}
     disabled={disabled || busy}
     className={`inline-flex items-center justify-center gap-2 rounded-full whitespace-nowrap transition-all duration-200 enabled:hover:scale-[1.01] enabled:active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed ${
-      size === 'sm' ? 'min-h-[36px] px-3.5 text-[13px]' : 'min-h-[42px] px-4.5 text-sm'
+      size === 'sm' ? 'min-h-[36px] px-3.5 text-[13px]' : 'min-h-[42px] px-[18px] text-sm'
     } ${VARIANTS[variant]} ${className}`}
     {...rest}
   >
@@ -132,7 +132,7 @@ export const Tabs: React.FC<{ tabs: { id: string; label: string; count?: number 
             <span>{tab.label}</span>
             {tab.count !== undefined && (
               <span
-                className={`text-[11.5px] px-1.5 py-0.2 rounded-full transition-colors ${
+                className={`text-[11.5px] px-1.5 py-px rounded-full transition-colors ${
                   isActive ? 'bg-white/20 text-white font-bold' : 'bg-adm-deep/[0.06] text-adm-mute'
                 }`}
               >

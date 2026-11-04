@@ -23,7 +23,7 @@ export const InnerHeroSection: React.FC<{ content: any }> = ({ content }) => (
 );
 
 const filterButtonClass = (isActive: boolean) =>
-  `relative h-9 sm:h-9.5 px-4 sm:px-5 rounded-full text-xs uppercase tracking-widest-editorial font-medium transition-all duration-300 whitespace-nowrap focus:outline-none inline-flex items-center justify-center gap-2 shrink-0 select-none shadow-sm ${
+  `relative h-9 sm:h-[38px] px-4 sm:px-5 rounded-full text-xs uppercase tracking-widest-editorial font-medium transition-all duration-300 whitespace-nowrap focus:outline-none inline-flex items-center justify-center gap-2 shrink-0 select-none shadow-sm ${
     isActive
       ? 'bg-knowza-deep text-white ring-1 ring-knowza-deep shadow-md'
       : 'bg-[#F6F4DE] text-knowza-dark/75 hover:text-knowza-dark hover:bg-black/[0.04] border border-black/10'
