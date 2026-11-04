@@ -65,6 +65,15 @@ knowza/
 └── vite.config.ts       # Vite configuration
 ```
 
+## 🗂️ Admin & CMS
+
+The website content is managed at `/admin`, backed by MongoDB and Cloudinary. Copy `.env.example` to `.env.local`, fill in the values, run `npm run dev` and open <http://localhost:5173/admin>.
+
+Create a login with `node scripts/create-admin.mjs you@example.com "Your Name" admin`.
+
+- [How the CMS works](docs/cms/ARCHITECTURE.md)
+- [Backend and deployment](docs/cms/BACKEND_MIGRATION.md)
+
 ## 📄 License
 
 Private repository. All rights reserved by Knowza.

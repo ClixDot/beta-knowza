@@ -414,3 +414,9 @@
   }
 }
 
+
+/* CMS section background options. Only applied when an admin chooses one. */
+[data-section-bg='canvas'] > * { background-color: #F6F4DE !important; }
+[data-section-bg='white'] > * { background-color: #FAF9F2 !important; }
+[data-section-bg='cream'] > * { background-color: #F4F0D5 !important; }
+[data-section-bg='sand'] > * { background-color: #E3DDC6 !important; }

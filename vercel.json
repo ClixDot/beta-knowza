@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/cms/:path*", "destination": "/api/cms?path=:path*" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}

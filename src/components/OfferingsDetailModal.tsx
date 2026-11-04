@@ -155,7 +155,7 @@ export const OfferingsDetailModal: React.FC<OfferingsDetailModalProps> = ({
                     {/* Featured Visual Strip */}
                     <div className="relative rounded-2xl overflow-hidden aspect-[21/9] sm:aspect-[24/9] w-full bg-knowza-deep shadow-inner border border-black/10">
                       <img
-                        src="/images/offerings/sanctuary-cabin.jpg"
+                        src="https://res.cloudinary.com/mg4ku51f/image/upload/v1793760169/knowza/images/offerings/sanctuary-cabin.jpg"
                         alt="High altitude mountain mist ridge sanctuary pavilion"
                         className="w-full h-full object-cover filter brightness-[0.9] contrast-[1.05]"
                       />
@@ -260,7 +260,7 @@ export const OfferingsDetailModal: React.FC<OfferingsDetailModalProps> = ({
                     {/* Featured Visual Strip */}
                     <div className="relative rounded-2xl overflow-hidden aspect-[21/9] sm:aspect-[24/9] w-full bg-knowza-deep shadow-inner border border-black/10">
                       <img
-                        src="/images/offerings/healing-retreat.jpg"
+                        src="https://res.cloudinary.com/mg4ku51f/image/upload/v1793760167/knowza/images/offerings/healing-retreat.jpg"
                         alt="Restorative mindful yoga and meditation retreat by misty lake"
                         style={{ objectPosition: '50% 60%' }}
                         className="w-full h-full object-cover filter brightness-[0.9] contrast-[1.03]"

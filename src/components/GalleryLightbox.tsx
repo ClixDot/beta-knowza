@@ -1,13 +1,13 @@
 import React, { useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
-import { GalleryItem } from '../types';
+import type { GalleryItemDoc } from '../cms/types';
 
 interface GalleryLightboxProps {
-  item: GalleryItem | null;
-  items: GalleryItem[];
+  item: GalleryItemDoc | null;
+  items: GalleryItemDoc[];
   isOpen: boolean;
   onClose: () => void;
-  onNavigate: (newItem: GalleryItem) => void;
+  onNavigate: (newItem: GalleryItemDoc) => void;
 }
 
 export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
@@ -121,7 +121,7 @@ export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
           {/* Image */}
           <img
             src={item.image}
-            alt={item.title}
+            alt={item.alt}
             className="max-h-[55vh] sm:max-h-[65vh] w-auto max-w-full object-contain rounded-subtle shadow-2xl transition-all duration-300 select-none"
           />
 
@@ -144,6 +144,7 @@ export const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
           <p className="text-xs sm:text-sm font-sans text-knowza-dew/75 mt-1 font-light leading-relaxed line-clamp-3 sm:line-clamp-none">
             {item.description}
           </p>
+          {item.caption && <p className="text-xs font-sans italic text-knowza-dew/60 mt-1">{item.caption}</p>}
           {item.location && (
             <div className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-knowza-bronze mt-2">
               <MapPin className="w-3 h-3" />

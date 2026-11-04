@@ -8,6 +8,8 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { PageTransition } from './components/PageTransition';
 import { LoadingScreen } from './components/LoadingScreen';
+import { GlobalStyles } from './components/cms/GlobalStyles';
+import { useCmsState } from './cms/services/cmsStore';
 
 // Pages
 import { Home } from './pages/Home';
@@ -67,13 +69,24 @@ export const App: React.FC = () => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const location = useLocation();
 
+  const { ready: contentReady } = useCmsState();
+  const [logoShown, setLogoShown] = useState(false);
+  const [waitedLongEnough, setWaitedLongEnough] = useState(false);
+
   useEffect(() => {
     // 1.1s initial centered logo display before animating up into the header
-    const timer = setTimeout(() => {
-      setIsInitialLoading(false);
-    }, 1100);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(() => setLogoShown(true), 1100);
+    // A slow API must never hold the site behind the loading screen.
+    const limit = setTimeout(() => setWaitedLongEnough(true), 4000);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(limit);
+    };
   }, []);
+
+  useEffect(() => {
+    if (logoShown && (contentReady || waitedLongEnough)) setIsInitialLoading(false);
+  }, [logoShown, contentReady, waitedLongEnough]);
 
   // Initialize Lenis smooth scroll engine & sync with GSAP ScrollTrigger
   useEffect(() => {
@@ -108,6 +121,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F6F4DE] text-knowza-dark font-sans selection:bg-knowza-olive selection:text-white">
+      <GlobalStyles />
       <LoadingScreen isInitialLoading={isInitialLoading} />
       <ScrollToTop />
       <Navbar isInitialLoading={isInitialLoading} />

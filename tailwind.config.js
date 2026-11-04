@@ -21,6 +21,20 @@ export default {
         'knowza-white': '#FAF9F2',
         'knowza-canvas': '#F6F4DE',
         'knowza-dark': '#25271F',
+        // Admin interface palette. Not used by the public site.
+        adm: {
+          bg: '#F3F1EC',
+          panel: '#F7F7F4',
+          line: '#D6D9C4',
+          ink: '#20281C',
+          mute: '#535B4B',
+          deep: '#28351F',
+          deeper: '#18210F',
+          olive: '#79864B',
+          sage: '#DDE4C4',
+          cream: '#F5F1D6',
+          bronze: '#8A7D4C',
+        },
       },
       fontFamily: {
         sans: ['"Tenor Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],

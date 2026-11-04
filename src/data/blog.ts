@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Nature',
     date: 'OCTOBER 2026',
     readTime: '6 MIN READ',
-    coverImage: '/images/hero/hero-sanctuary.jpg',
+    coverImage: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760156/knowza/images/hero/hero-sanctuary.jpg',
     excerpt: 'When we step beneath the canopy of an untouched forest, the frantic pace of the modern world recedes, replaced by the steady pulse of living earth.',
     introduction: 'In our relentless pursuit of efficiency, we often forget that the human spirit was forged in conversation with the natural world. True hospitality is not about insulation from the wild; it is an invitation to cross the threshold back into belonging.',
     content: [
@@ -19,11 +19,11 @@ export const blogPosts: BlogPost[] = [
     ],
     inlineImages: [
       {
-        src: '/images/about/grounding.png',
+        src: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760132/knowza/images/about/grounding.png',
         caption: 'Barefoot contact with living moss: grounding both body and awareness.'
       },
       {
-        src: '/images/nature/fern.png',
+        src: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760165/knowza/images/nature/fern.png',
         caption: 'The fractal geometry of wild ferns in dawn sunlight.'
       }
     ],
@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Culture',
     date: 'SEPTEMBER 2026',
     readTime: '8 MIN READ',
-    coverImage: '/images/gallery/courtyard.jpg',
+    coverImage: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760150/knowza/images/gallery/courtyard.jpg',
     excerpt: 'Traditional South Indian architecture was never designed to dominate the landscape, but to breathe with the seasonal rhythms of rain, sun, and breeze.',
     introduction: 'Before steel and air conditioning, vernacular builders spent generations learning the topography of the land, the slant of the southwest monsoon, and the cooling properties of terracotta and local timber.',
     content: [
@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     ],
     inlineImages: [
       {
-        src: '/images/gallery/treehouse-retreat.png',
+        src: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760154/knowza/images/gallery/treehouse-retreat.png',
         caption: 'Elevated timber shelters resting lightly within the tree canopy.'
       }
     ],
@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Travel',
     date: 'SEPTEMBER 2026',
     readTime: '5 MIN READ',
-    coverImage: '/images/gallery/tea-hills.jpg',
+    coverImage: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760153/knowza/images/gallery/tea-hills.jpg',
     excerpt: 'True discovery does not occur at top speed. It unfolds when we discard the frantic checklist and allow time to expand along misty tea trails.',
     introduction: 'In the hurry to see everything, modern travel often leaves us having felt nothing. Slow travel is the conscious antidote — a deliberate surrender to presence.',
     content: [
@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
     ],
     inlineImages: [
       {
-        src: '/images/gallery/backwater.jpg',
+        src: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760149/knowza/images/gallery/backwater.jpg',
         caption: 'Quiet canoe traversing twilight waterways in peaceful contemplation.'
       }
     ],
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Experiences',
     date: 'AUGUST 2026',
     readTime: '7 MIN READ',
-    coverImage: '/images/gallery/pottery-artisan.jpg',
+    coverImage: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760151/knowza/images/gallery/pottery-artisan.jpg',
     excerpt: 'Authentic heritage is not preserved in glass display cases; it lives in the calloused hands of artisans, generational recipes, and shared stories.',
     introduction: 'When experiential hospitality bridges the divide between visitors and localized communities, genuine transformation occurs for both.',
     content: [
@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
     ],
     inlineImages: [
       {
-        src: '/images/connection/connection-hands.jpg',
+        src: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760147/knowza/images/connection/connection-hands.jpg',
         caption: 'Shared hands and shared stories: the foundation of experiential hospitality.'
       }
     ],

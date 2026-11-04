@@ -2,13 +2,15 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight, Clock, BookOpen } from 'lucide-react';
-import { BlogPost } from '../types';
+import type { BlogPostDoc } from '../cms/types';
 
 interface InteractiveDispatchesCardProps {
-  posts: BlogPost[];
+  posts: BlogPostDoc[];
+  readLabel: string;
+  counterLabel: string;
 }
 
-export const InteractiveDispatchesCard: React.FC<InteractiveDispatchesCardProps> = ({ posts }) => {
+export const InteractiveDispatchesCard: React.FC<InteractiveDispatchesCardProps> = ({ posts, readLabel, counterLabel }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const currentPost = posts[activeIndex] || posts[0];
 
@@ -130,7 +132,7 @@ export const InteractiveDispatchesCard: React.FC<InteractiveDispatchesCardProps>
                 >
                   <img
                     src={currentPost.coverImage}
-                    alt={currentPost.title}
+                    alt={currentPost.coverAlt}
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
                     loading="lazy"
                   />
@@ -191,13 +193,13 @@ export const InteractiveDispatchesCard: React.FC<InteractiveDispatchesCardProps>
                     to={`/blog/${currentPost.slug}`}
                     className="inline-flex items-center gap-2 text-xs uppercase tracking-widest-editorial font-medium px-8 py-3.5 rounded-full shadow-md group/btn knowza-btn-liquid knowza-btn-liquid-olive-fill"
                   >
-                    <span>Read Article</span>
+                    <span>{readLabel}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </Link>
 
                   <div className="text-xs font-sans text-knowza-dark/50 flex items-center gap-2">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-knowza-forest animate-pulse" />
-                    <span>Story {activeIndex + 1} of {posts.length}</span>
+                    <span>{counterLabel.replace('{current}', String(activeIndex + 1)).replace('{total}', String(posts.length))}</span>
                   </div>
                 </div>
               </motion.div>

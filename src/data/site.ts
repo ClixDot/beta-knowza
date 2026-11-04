@@ -32,25 +32,25 @@ export const brandPrinciples: BrandPrinciple[] = [
     number: '01',
     title: 'Rooted in Place',
     description: 'Every sanctuary is an organic extension of its natural habitat. We build in quiet rhythm with ancient trees, earth trails, and untouched riverways rather than imposing upon them.',
-    image: '/images/gallery/rooted-earth.png'
+    image: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760152/knowza/images/gallery/rooted-earth.png'
   },
   {
     number: '02',
     title: 'Shaped by Culture',
     description: 'Living heritage, localized wisdom, and traditional craftsmanship guide each experience. We honor the architectural soul and living memory of native communities.',
-    image: '/images/gallery/courtyard.jpg'
+    image: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760150/knowza/images/gallery/courtyard.jpg'
   },
   {
     number: '03',
     title: 'Connected by Heart',
     description: 'Hospitality is reimagined as genuine human presence. Meaningful encounters between travelers and local keepers foster quiet moments that outlast any itinerary.',
-    image: '/images/connection/connection-hands.jpg'
+    image: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760147/knowza/images/connection/connection-hands.jpg'
   },
   {
     number: '04',
     title: 'Thoughtfully Experienced',
     description: 'Slow travel elevated into an art form. Time slows to the cadence of rustling leaves, dawn birdsong, and the warmth of a shared morning fire.',
-    image: '/images/gallery/tea-hills.jpg'
+    image: 'https://res.cloudinary.com/mg4ku51f/image/upload/v1793760153/knowza/images/gallery/tea-hills.jpg'
   }
 ];
 

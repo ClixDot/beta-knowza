@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { navLinks } from '../data/navigation';
-import { siteConfig } from '../data/site';
 import { Container } from './Container';
+import { CmsLink } from './cms/CmsLink';
+import { useGlobal } from '../cms/hooks/useSiteContent';
 
 interface NavbarProps {
   onOpenExplore?: () => void;
@@ -12,6 +12,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading = false }) => {
+  const { header } = useGlobal();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -68,11 +69,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
 
   const isHome = location.pathname === '/';
   const useLightNavbar = isHome && !isScrolled;
+  const showDarkLogo = isInitialLoading || !useLightNavbar;
 
-  const leftNavLinks = navLinks.slice(0, 3); // HOME, ABOUT, GALLERY
-  const rightNavLinks = navLinks.slice(3);   // BLOG, CONTACT
+  const navLinks = header.nav.filter((link) => link.enabled);
+  const leftNavLinks = navLinks.slice(0, header.leftCount); // Sits left of the centred logo
+  const rightNavLinks = navLinks.slice(header.leftCount);
+  const logoStyle = header.logoHeight > 0 ? { height: header.logoHeight } : undefined;
 
   const handleExploreClick = (e: React.MouseEvent) => {
+    // Custom CTA destinations navigate normally; the in-page scroll belongs to the default target.
+    if (header.ctaUrl !== '/gallery') return;
+
     if (onOpenExplore) {
       e.preventDefault();
       onOpenExplore();
@@ -99,6 +106,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
       return;
     }
   };
+
+  if (!header.visible) return null;
 
   return (
     <>
@@ -128,8 +137,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
             >
               {leftNavLinks.map((link) => (
                 <NavLink
-                  key={link.path}
-                  to={link.path}
+                  key={link.id}
+                  to={link.url}
                   className={({ isActive }) =>
                     `text-xs uppercase tracking-widest-editorial transition-all duration-300 relative py-1 ${
                       useLightNavbar
@@ -142,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
                     }`
                   }
                 >
-                  <span>{link.name}</span>
+                  <span>{link.label}</span>
                 </NavLink>
               ))}
             </motion.nav>
@@ -171,15 +180,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
                 className="flex items-center justify-center transition-opacity duration-300 hover:opacity-85 focus:outline-none"
                 aria-label="KNOWZA Home"
               >
-                <img
-                  src={
-                    useLightNavbar
-                      ? '/images/logo/knowza-logo-horizontal-light.png'
-                      : '/images/logo/knowza-logo-horizontal-dark.png'
-                  }
-                  alt="KNOWZA — Experiential Hospitality"
-                  className="h-7 sm:h-8 md:h-8.5 w-auto object-contain block transition-opacity duration-300"
-                />
+                {/* Both variants stay mounted so the swap crossfades without a load flash.
+                    The loader backdrop is cream, so the dark logo is required until it clears. */}
+                <span className="relative block">
+                  <img
+                    src={header.logoLight}
+                    alt={showDarkLogo ? '' : header.logoAlt}
+                    aria-hidden={showDarkLogo}
+                    style={logoStyle}
+                    className={`h-7 sm:h-8 md:h-8.5 w-auto object-contain block transition-opacity duration-500 ${
+                      showDarkLogo ? 'opacity-0' : 'opacity-100'
+                    }`}
+                  />
+                  <img
+                    src={header.logoDark}
+                    alt={showDarkLogo ? header.logoAlt : ''}
+                    aria-hidden={!showDarkLogo}
+                    className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ${
+                      showDarkLogo ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                </span>
               </Link>
             </motion.div>
 
@@ -195,8 +216,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
               <nav className="flex items-center space-x-6 lg:space-x-8" aria-label="Right Navigation">
                 {rightNavLinks.map((link) => (
                   <NavLink
-                    key={link.path}
-                    to={link.path}
+                    key={link.id}
+                    to={link.url}
                     className={({ isActive }) =>
                       `text-xs uppercase tracking-widest-editorial transition-all duration-300 relative py-1 ${
                         useLightNavbar
@@ -209,13 +230,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
                       }`
                     }
                   >
-                    <span>{link.name}</span>
+                    <span>{link.label}</span>
                   </NavLink>
                 ))}
               </nav>
 
-              <Link
-                to="/gallery"
+              {header.ctaVisible && (
+              <CmsLink
+                url={header.ctaUrl}
                 onClick={handleExploreClick}
                 className={`inline-flex items-center gap-1.5 lg:gap-2 text-xs uppercase tracking-widest-editorial font-medium px-4 lg:px-6 py-2 lg:py-2.5 rounded-full transition-all duration-300 group knowza-btn-liquid shrink-0 ${
                   useLightNavbar
@@ -223,9 +245,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
                     : 'knowza-btn-liquid-olive shadow-sm'
                 }`}
               >
-                <span>EXPLORE</span>
+                <span>{header.ctaLabel}</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
+              </CmsLink>
+              )}
             </motion.div>
 
             {/* Mobile Menu Button */}
@@ -266,8 +289,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
         <div className="flex justify-between items-center pt-2 pb-6 border-b border-[#8A7D4C]/30 shrink-0">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)} aria-label="KNOWZA Home">
             <img
-              src="/images/logo/knowza-logo-horizontal-dark.png"
+              src={header.logoDark}
               alt="KNOWZA"
+              style={logoStyle}
               className="h-7 sm:h-8 w-auto object-contain block"
             />
           </Link>
@@ -284,8 +308,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
         <nav className="flex flex-col space-y-6 my-auto py-8">
           {navLinks.map((link, idx) => (
             <NavLink
-              key={link.path}
-              to={link.path}
+              key={link.id}
+              to={link.url}
               onClick={() => setIsMobileMenuOpen(false)}
               className={({ isActive }) =>
                 `text-2xl font-serif tracking-wide transition-all duration-300 flex items-center justify-between pl-3.5 border-l-2 ${
@@ -298,29 +322,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenExplore, isInitialLoading 
                 transitionDelay: `${idx * 50}ms`
               }}
             >
-              <span className="text-black font-semibold">{link.name}</span>
-              <span className="text-xs font-sans tracking-widest-editorial text-knowza-deep font-bold">
-                0{idx + 1}
-              </span>
+              <span className="text-black font-semibold">{link.label}</span>
+              {header.mobileShowNumbers && (
+                <span className="text-xs font-sans tracking-widest-editorial text-knowza-deep font-bold">
+                  0{idx + 1}
+                </span>
+              )}
             </NavLink>
           ))}
         </nav>
 
         <div className="pt-6 border-t border-[#8A7D4C]/30 flex flex-col gap-4">
-          <Link
-            to="/gallery"
+          <CmsLink
+            url={header.mobileCtaUrl}
             onClick={(e) => {
               setIsMobileMenuOpen(false);
               handleExploreClick(e);
             }}
             className="w-full py-3.5 sm:py-4 text-center text-xs uppercase tracking-widest-editorial font-medium rounded-full flex items-center justify-center gap-2 group knowza-btn-liquid knowza-btn-liquid-olive-fill shadow-md"
           >
-            <span>Explore Knowza</span>
+            <span>{header.mobileCtaLabel}</span>
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          </CmsLink>
           <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] uppercase tracking-widest text-knowza-dark/75 font-semibold pt-2">
-            <span>{siteConfig.tagline}</span>
-            <span>{siteConfig.territory}</span>
+            <span>{header.mobileFooterLeft}</span>
+            <span>{header.mobileFooterRight}</span>
           </div>
         </div>
       </div>

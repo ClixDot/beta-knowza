@@ -1,69 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Compass, Sparkles } from 'lucide-react';
-
-export type OfferingPath = 'hospitality' | 'healing';
-
-export interface OfferingCardData {
-  id: OfferingPath;
-  tag: string;
-  badge?: string;
-  title: string;
-  description: string;
-  image: string;
-  imageAlt: string;
-  objectPosition?: string;
-  ctaText: string;
-  buttonVariant?: 'dark' | 'olive' | 'outline';
-}
-
-const defaultOfferings: OfferingCardData[] = [
-  {
-    id: 'hospitality',
-    tag: '01 / HOSPITALITY',
-    badge: 'Experiential Hospitality',
-    title: 'Experiential Hospitality',
-    description:
-      'Reconnect with untouched nature and raw culture. Step away from the digital chaos to rediscover barefoot childhood wonders, soulful community, and timeless earth.',
-    image: '/images/offerings/experiential-hospitality.jpg',
-    imageAlt: 'Young explorer rediscovering barefoot childhood wonder, examining forest moss and acorns with a magnifying glass',
-    objectPosition: '50% 50%',
-    ctaText: 'EXPLORE EXPERIENCES',
-    buttonVariant: 'dark',
-  },
-  {
-    id: 'healing',
-    tag: '02 / WELLBEING & RETREAT',
-    badge: 'The Healing Journey',
-    title: 'The Healing Journey',
-    description:
-      'A deeply restorative sanctuary designed for leaders and visionaries to heal, release deep-seated trauma, and restore inner stillness with expert guides.',
-    image: '/images/offerings/healing-retreat.jpg',
-    imageAlt: 'Restorative mindful yoga and meditation retreat by the misty lake under sunlit forest canopy',
-    objectPosition: '50% 58%',
-    ctaText: 'DISCOVER HEALING',
-    buttonVariant: 'olive',
-  },
-];
+import { ArrowRight } from 'lucide-react';
+import { CmsLink } from './cms/CmsLink';
+import { CmsIcon } from './cms/icons';
+import { imageStyle } from '../cms/utils';
 
 export interface OfferingsSectionProps {
-  heading?: string;
-  tagline?: string;
-  subtitle?: string;
-  offerings?: OfferingCardData[];
+  content: any;
   className?: string;
   id?: string;
 }
 
-export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
-  heading = 'OUR OFFERINGS',
-  tagline = 'CURATED EXPERIENCES',
-  subtitle = 'Two pathways to reconnect with the earth and your inner self.',
-  offerings = defaultOfferings,
-  className = '',
-  id = 'offerings',
-}) => {
+export const OfferingsSection: React.FC<OfferingsSectionProps> = ({ content, className = '', id = 'offerings' }) => {
   return (
     <section
       id={id}
@@ -82,7 +30,7 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
           >
             <span className="w-6 h-[1.5px] bg-[#8A7D4C]" />
             <span className="text-xs font-sans uppercase tracking-[0.28em] text-[#8A7D4C] font-semibold">
-              {tagline}
+              {content.tagline}
             </span>
             <span className="w-6 h-[1.5px] bg-[#8A7D4C]" />
           </motion.div>
@@ -94,7 +42,7 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
             transition={{ duration: 0.75, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-serif font-normal text-knowza-dark tracking-tight leading-[1.15]"
           >
-            {heading}
+            {content.heading}
           </motion.h2>
 
           <motion.p
@@ -104,18 +52,18 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
             transition={{ duration: 0.75, delay: 0.2 }}
             className="text-base sm:text-lg font-sans text-knowza-dark/75 font-light leading-relaxed mt-4 max-w-xl mx-auto"
           >
-            {subtitle}
+            {content.subtitle}
           </motion.p>
         </div>
 
         {/* 2-Column Responsive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
-          {offerings.map((offering, index) => {
+          {content.cards.map((offering: any, index: number) => {
             const isFirst = index === 0;
 
             return (
               <motion.article
-                key={offering.tag}
+                key={offering.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
@@ -129,9 +77,9 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
                 {/* Visual Imagery Container */}
                 <div className="relative aspect-[16/11] sm:aspect-[16/11] w-full overflow-hidden bg-knowza-deep">
                   <img
-                    src={offering.image}
-                    alt={offering.imageAlt}
-                    style={{ objectPosition: offering.objectPosition || 'center' }}
+                    src={offering.image.src}
+                    alt={offering.image.alt}
+                    style={imageStyle(offering.image) ?? { objectPosition: 'center' }}
                     className="w-full h-full object-cover filter brightness-[0.94] contrast-[1.03] transition-transform duration-700 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
@@ -144,11 +92,7 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
                   {offering.badge && (
                     <div className="absolute top-5 left-5 sm:top-6 sm:left-6 z-10">
                       <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-widest text-[#FAF9F2] bg-black/45 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 font-medium shadow-sm">
-                        {isFirst ? (
-                          <Compass className="w-3 h-3 text-[#EEE9BF]" />
-                        ) : (
-                          <Sparkles className="w-3 h-3 text-[#EEE9BF]" />
-                        )}
+                        <CmsIcon name={offering.badgeIcon} className="w-3 h-3 text-[#EEE9BF]" />
                         {offering.badge}
                       </span>
                     </div>
@@ -176,8 +120,8 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
 
                   {/* CTA Action - Navigates to dedicated separate page on About */}
                   <div className="pt-4 border-t border-black/5">
-                    <Link
-                      to={`/about?tab=${offering.id}#curated-pathways`}
+                    <CmsLink
+                      url={offering.ctaUrl}
                       className={`inline-flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs uppercase tracking-widest-editorial font-medium transition-all duration-300 shadow-sm group/btn select-none cursor-pointer ${
                         offering.buttonVariant === 'olive'
                           ? 'bg-[#79864B] text-[#FAF9F2] hover:bg-knowza-deep hover:shadow-md border border-[#79864B]'
@@ -188,7 +132,7 @@ export const OfferingsSection: React.FC<OfferingsSectionProps> = ({
                     >
                       <span>{offering.ctaText}</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1.5 shrink-0" />
-                    </Link>
+                    </CmsLink>
                   </div>
                 </div>
               </motion.article>

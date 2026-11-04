@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { CmsLink } from './cms/CmsLink';
+import { imageStyle } from '../cms/utils';
+import type { ImageValue } from '../cms/types';
 
 export interface GalleryPreviewCard {
-  image: string;
+  id: string;
+  image: ImageValue;
   title: string;
   category: string;
-  tiltClass?: string;
+  url: string;
 }
 
 interface InfiniteScrollMarqueeProps {
@@ -29,14 +32,15 @@ export const InfiniteScrollMarquee: React.FC<InfiniteScrollMarqueeProps> = ({
     const rotation = alternatingTilts[idx % alternatingTilts.length];
 
     return (
-      <Link
+      <CmsLink
         key={`${prefix}-${idx}`}
-        to="/gallery"
+        url={card.url}
         className={`group relative flex-shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[340px] aspect-[4/5] rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-[0_20px_45px_-12px_rgba(0,0,0,0.55)] transition-all duration-500 ease-out cursor-pointer z-10 hover:z-30 border border-black/20 bg-[#122A1B] transform ${rotation} hover:!rotate-0 hover:scale-[1.045] hover:shadow-[0_30px_60px_-12px_rgba(0,0,0,0.75)]`}
       >
         <img
-          src={card.image}
-          alt={card.title}
+          src={card.image.src}
+          alt={card.image.alt}
+          style={imageStyle(card.image)}
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
           loading="lazy"
         />
@@ -50,7 +54,7 @@ export const InfiniteScrollMarquee: React.FC<InfiniteScrollMarqueeProps> = ({
             {card.title}
           </h4>
         </div>
-      </Link>
+      </CmsLink>
     );
   };
 
