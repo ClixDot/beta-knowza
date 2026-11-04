@@ -335,7 +335,7 @@ const QuickAction: React.FC = () => {
     { to: '/admin/pages/home', label: 'Edit home page' },
   ];
   return (
-    <div ref={boxRef} className="relative mr-2 sm:mr-3.5 shrink-0">
+    <div ref={boxRef} className="relative mr-2 sm:mr-3.5 shrink-0 max-[425px]:hidden">
       <Btn
         variant="primary"
         className="!rounded-full !min-h-[40px] !px-5 sm:!px-6 min-w-[136px] sm:min-w-[148px]"
